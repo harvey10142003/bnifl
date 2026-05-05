@@ -2,18 +2,17 @@ FROM node:20-slim
 WORKDIR /app
 
 ENV NEXT_TELEMETRY_DISABLED=1
-ENV NODE_ENV=development
 
+# Install all deps (including devDeps for build tools)
 COPY package.json package-lock.json ./
 RUN npm ci --include=dev
 
 COPY . .
 
-# /404 /500 prerender errors are tolerated; runtime serves them dynamically.
-RUN npm run build || true
-RUN test -d .next/server/pages || (echo "BUILD ARTIFACTS MISSING" && exit 1)
-
+# Build with NODE_ENV=production so React/Next bundles prod runtime
 ENV NODE_ENV=production
+RUN npm run build
+
 ENV PORT=3000
 ENV HOSTNAME=0.0.0.0
 EXPOSE 3000
