@@ -159,29 +159,47 @@ export default function HomePage() {
       {/* INDUSTRIES */}
       <Section dark className="overflow-hidden">
         <div className="container-bnifl">
-          <SectionHeader
-            eyebrow="INDUSTRIES"
-            title="14 個產業，一個信任網絡。"
-            description="從財務金融到生活美學，富聯白金分會橫跨高雄主流產業；不重疊、不競爭，只專注於彼此的成長。"
-            light
-          />
+          {(() => {
+            const openCount = industries.filter(
+              (ind) => members.filter((m) => m.industry === ind.slug).length === 0
+            ).length;
+            return (
+              <SectionHeader
+                eyebrow="INDUSTRIES"
+                title="14 個產業，一個信任網絡。"
+                description={`從財務金融到生活美學，富聯白金分會橫跨高雄主流產業；不重疊、不競爭，只專注於彼此的成長。${openCount > 0 ? `目前還有 ${openCount} 個產業虛位以待。` : ''}`}
+                light
+              />
+            );
+          })()}
           <div className="grid gap-px bg-ink-700/50 border border-ink-700/50 sm:grid-cols-2 lg:grid-cols-4">
-            {industries.map((ind, i) => (
-              <Reveal key={ind.slug} delay={i * 0.04}>
-                <Link
-                  href={`/members?industry=${ind.slug}`}
-                  className="block bg-ink-900 p-8 hover:bg-ink-700 transition-colors h-full group"
-                >
-                  <div className="font-sans font-black text-platinum-400 text-sm mb-4">
-                    {String(i + 1).padStart(2, '0')}
-                  </div>
-                  <h3 className="font-sans font-black text-xl text-pearl mb-2 group-hover:text-platinum-400 transition-colors">
-                    {ind.name}
-                  </h3>
-                  <p className="text-xs text-ink-300 leading-relaxed">{ind.description}</p>
-                </Link>
-              </Reveal>
-            ))}
+            {industries.map((ind, i) => {
+              const count = members.filter((m) => m.industry === ind.slug).length;
+              const isOpen = count === 0;
+              return (
+                <Reveal key={ind.slug} delay={i * 0.04}>
+                  <Link
+                    href={isOpen ? '/visit' : `/members?industry=${ind.slug}`}
+                    className="relative block bg-ink-900 p-8 hover:bg-ink-700 transition-colors h-full group"
+                  >
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="font-sans font-black text-teal-400 text-sm">
+                        {String(i + 1).padStart(2, '0')}
+                      </div>
+                      {isOpen ? (
+                        <span className="badge-teal">招募中</span>
+                      ) : (
+                        <span className="text-[11px] text-ink-300">{count} 位</span>
+                      )}
+                    </div>
+                    <h3 className="font-sans font-black text-xl text-pearl mb-2 group-hover:text-teal-400 transition-colors">
+                      {ind.name}
+                    </h3>
+                    <p className="text-xs text-ink-300 leading-relaxed">{ind.description}</p>
+                  </Link>
+                </Reveal>
+              );
+            })}
           </div>
         </div>
       </Section>
