@@ -1,7 +1,8 @@
 'use client';
 
-import { motion, useReducedMotion } from 'framer-motion';
+import { useEffect, useRef, useState } from 'react';
 import type { ReactNode } from 'react';
+import { cn } from '@/lib/utils';
 
 export function Reveal({
   children,
@@ -12,17 +13,36 @@ export function Reveal({
   delay?: number;
   className?: string;
 }) {
-  const prefersReducedMotion = useReducedMotion();
-  if (prefersReducedMotion) return <div className={className}>{children}</div>;
+  const [visible, setVisible] = useState(false);
+  const ref = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (!ref.current) return;
+    const el = ref.current;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.15, rootMargin: '0px 0px -80px 0px' }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 32 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-80px' }}
-      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay }}
-      className={className}
+    <div
+      ref={ref}
+      style={{ transitionDelay: `${delay * 1000}ms` }}
+      className={cn(
+        'transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] motion-reduce:transition-none',
+        visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8',
+        className
+      )}
     >
       {children}
-    </motion.div>
+    </div>
   );
 }
