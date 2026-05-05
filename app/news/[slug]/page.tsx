@@ -38,7 +38,7 @@ export default function NewsDetailPage({ params }: { params: { slug: string } })
           </Link>
           <Reveal>
             <div className="flex items-center gap-3 mb-6">
-              <span className="bg-gradient-platinum px-3 py-1 text-[11px] tracking-widest-2 uppercase font-medium text-ink-900">
+              <span className="bg-gradient-platinum px-3 py-1 text-[11px] rounded-full tracking-widest-2 uppercase font-medium text-ink-900">
                 {item.category}
               </span>
               {item.week && (
@@ -67,7 +67,7 @@ export default function NewsDetailPage({ params }: { params: { slug: string } })
       {/* COVER */}
       <div className="bg-pearl border-b border-ink-100">
         <div className="container-bnifl py-12">
-          <div className="aspect-[2/1] overflow-hidden bg-ink-900">
+          <div className="aspect-[2/1] overflow-hidden bg-ink-900 rounded-2xl">
             <img src={item.cover} alt={item.title} className="w-full h-full object-cover" />
           </div>
         </div>
@@ -76,7 +76,7 @@ export default function NewsDetailPage({ params }: { params: { slug: string } })
       {/* CONTENT */}
       <Section>
         <div className="container-bnifl max-w-3xl">
-          <p className="text-xl leading-relaxed text-ink-700 font-sans font-black mb-10 text-pretty border-l-2 border-platinum-500 pl-6">
+          <p className="text-xl leading-relaxed text-ink-700 font-sans font-black mb-10 text-pretty border-l-2 border-teal-500 pl-6 rounded-r-md">
             {item.excerpt}
           </p>
           <div className="prose prose-lg max-w-none text-ink-700 leading-loose whitespace-pre-line">

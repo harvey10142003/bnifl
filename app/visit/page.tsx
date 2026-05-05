@@ -99,7 +99,7 @@ export default function VisitPage() {
           </div>
 
           <div className="lg:col-span-7">
-            <div className="bg-pearl-200 border border-ink-100 p-8 md:p-12">
+            <div className="bg-pearl-200 border border-ink-100 p-8 rounded-2xl md:p-12">
               <div className="eyebrow mb-3">RSVP FORM</div>
               <h3 className="font-sans font-black text-2xl md:text-3xl mb-2">線上參訪預約</h3>
               <p className="text-ink-500 text-sm mb-8">
@@ -122,8 +122,8 @@ export default function VisitPage() {
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {expects.map((e, i) => (
               <Reveal key={e.title} delay={i * 0.06}>
-                <div className="bg-pearl border border-ink-100 p-8 h-full hover:border-platinum-400 transition-colors">
-                  <div className="inline-flex h-12 w-12 items-center justify-center bg-gradient-platinum mb-5">
+                <div className="bg-pearl border border-ink-100 p-8 rounded-2xl h-full hover:border-platinum-400 transition-colors">
+                  <div className="inline-flex h-12 w-12 items-center justify-center bg-gradient-platinum rounded-xl mb-5">
                     <e.icon className="h-5 w-5 text-ink-900" />
                   </div>
                   <h3 className="font-sans font-black text-xl text-ink-900 mb-3">{e.title}</h3>
@@ -150,7 +150,7 @@ export default function VisitPage() {
                   <h3 className="font-sans font-black text-lg md:text-xl text-ink-900 pr-4">
                     Q. {f.q}
                   </h3>
-                  <span className="flex h-8 w-8 items-center justify-center bg-ink-100 group-open:bg-gradient-platinum text-ink-900 transition-all shrink-0">
+                  <span className="flex h-8 w-8 items-center justify-center bg-ink-100 rounded-xl group-open:bg-gradient-platinum text-ink-900 transition-all shrink-0">
                     <span className="block h-px w-3 bg-current relative">
                       <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-3 w-px bg-current group-open:opacity-0 transition-opacity" />
                     </span>

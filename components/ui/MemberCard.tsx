@@ -11,7 +11,7 @@ export function MemberCard({ member }: { member: Member }) {
       href={`/members/${member.slug}`}
       className="group relative block overflow-hidden border border-ink-100 bg-pearl-100 transition-all duration-500 hover:border-platinum-400 hover:shadow-xl hover:shadow-ink-900/5"
     >
-      <div className="relative aspect-[4/5] overflow-hidden bg-ink-900">
+      <div className="relative aspect-[4/5] overflow-hidden bg-ink-900 rounded-2xl">
         <Image
           src={member.avatar}
           alt={member.name}
@@ -21,7 +21,7 @@ export function MemberCard({ member }: { member: Member }) {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-ink-900/80 via-ink-900/20 to-transparent" />
         {member.role && (
-          <div className="absolute top-4 left-4 bg-gradient-platinum px-3 py-1 text-[11px] tracking-widest-2 uppercase font-medium text-ink-900">
+          <div className="absolute top-4 left-4 bg-gradient-platinum px-3 py-1 text-[11px] rounded-full tracking-widest-2 uppercase font-medium text-ink-900">
             {member.role}
           </div>
         )}

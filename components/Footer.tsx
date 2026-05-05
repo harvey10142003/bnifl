@@ -21,7 +21,7 @@ export function Footer() {
           <div className="flex gap-3">
             <a
               href={site.contact.facebook}
-              className="flex h-10 w-10 items-center justify-center border border-ink-500 text-ink-100 hover:border-teal-400 hover:text-teal-300 transition-colors"
+              className="flex h-10 w-10 items-center justify-center border border-ink-500 rounded-xl text-ink-100 hover:border-teal-400 hover:text-teal-300 transition-colors"
               aria-label="Facebook"
             >
               <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor">
@@ -30,7 +30,7 @@ export function Footer() {
             </a>
             <a
               href={site.contact.instagram}
-              className="flex h-10 w-10 items-center justify-center border border-ink-500 text-ink-100 hover:border-teal-400 hover:text-teal-300 transition-colors"
+              className="flex h-10 w-10 items-center justify-center border border-ink-500 rounded-xl text-ink-100 hover:border-teal-400 hover:text-teal-300 transition-colors"
               aria-label="Instagram"
             >
               <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor">
@@ -39,7 +39,7 @@ export function Footer() {
             </a>
             <a
               href={site.contact.lineUrl}
-              className="flex h-10 w-10 items-center justify-center border border-ink-500 text-ink-100 hover:border-teal-400 hover:text-teal-300 transition-colors"
+              className="flex h-10 w-10 items-center justify-center border border-ink-500 rounded-xl text-ink-100 hover:border-teal-400 hover:text-teal-300 transition-colors"
               aria-label="LINE"
             >
               <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor">

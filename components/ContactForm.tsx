@@ -43,7 +43,7 @@ export function ContactForm() {
   if (status === 'success') {
     return (
       <div className="text-center py-10">
-        <div className="inline-flex h-16 w-16 items-center justify-center bg-gradient-platinum mb-6">
+        <div className="inline-flex h-16 w-16 items-center justify-center bg-gradient-platinum rounded-xl mb-6">
           <Check className="h-8 w-8 text-ink-900" />
         </div>
         <h3 className="font-sans font-black text-2xl text-ink-900 mb-3">訊息已送出</h3>

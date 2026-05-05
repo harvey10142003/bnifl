@@ -22,7 +22,7 @@ export function NewsCard({ item, featured }: { item: News; featured?: boolean })
           sizes={featured ? '(min-width: 1024px) 50vw, 100vw' : '(min-width: 1024px) 33vw, 100vw'}
           className="object-cover transition-transform duration-700 group-hover:scale-105"
         />
-        <div className="absolute top-4 left-4 bg-pearl px-3 py-1 text-[11px] tracking-widest-2 uppercase font-medium text-ink-900">
+        <div className="absolute top-4 left-4 bg-pearl px-3 py-1 text-[11px] rounded-full tracking-widest-2 uppercase font-medium text-ink-900">
           {item.category}
         </div>
       </div>

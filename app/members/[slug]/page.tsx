@@ -38,10 +38,10 @@ export default function MemberDetailPage({ params }: { params: { slug: string } 
         <div className="container-bnifl relative grid gap-12 py-20 lg:grid-cols-12 lg:py-28">
           <div className="lg:col-span-5">
             <Reveal>
-              <div className="aspect-[4/5] relative overflow-hidden bg-ink-700 max-w-md">
+              <div className="aspect-[4/5] relative overflow-hidden bg-ink-700 rounded-2xl max-w-md">
                 <img src={member.avatar} alt={member.name} className="w-full h-full object-cover" />
                 {member.role && (
-                  <div className="absolute top-4 left-4 bg-gradient-platinum px-3 py-1 text-[11px] tracking-widest-2 uppercase font-medium text-ink-900">
+                  <div className="absolute top-4 left-4 bg-gradient-platinum px-3 py-1 text-[11px] rounded-full tracking-widest-2 uppercase font-medium text-ink-900">
                     {member.role}
                   </div>
                 )}
@@ -108,7 +108,7 @@ export default function MemberDetailPage({ params }: { params: { slug: string } 
             </div>
           </div>
           <div className="lg:col-span-5">
-            <div className="bg-pearl-200 border border-ink-100 p-8 lg:p-10">
+            <div className="bg-pearl-200 border border-ink-100 p-8 rounded-2xl lg:p-10">
               <div className="eyebrow mb-5">提供服務</div>
               <h3 className="font-sans font-black text-2xl mb-6">能為您解決的事</h3>
               <ul className="space-y-3">

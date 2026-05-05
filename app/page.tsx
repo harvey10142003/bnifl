@@ -217,7 +217,7 @@ export default function HomePage() {
             </div>
             <div className="lg:col-span-7">
               <Reveal>
-                <div className="relative bg-pearl border border-ink-100 p-10 md:p-14">
+                <div className="relative bg-pearl border border-ink-100 p-10 rounded-2xl md:p-14">
                   <Quote className="absolute -top-5 -left-5 h-12 w-12 bg-gradient-platinum p-3 text-ink-900" />
                   <div className="text-xs tracking-widest-2 uppercase text-platinum-600 mb-4">
                     {featuredStory.year} ／ 引薦金額 {featuredStory.amount}

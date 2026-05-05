@@ -31,7 +31,7 @@ export default function ContactPage() {
 
             <ul className="space-y-px bg-ink-100 border border-ink-100">
               <li className="bg-pearl p-6 flex items-start gap-5">
-                <div className="flex h-12 w-12 items-center justify-center bg-gradient-platinum shrink-0">
+                <div className="flex h-12 w-12 items-center justify-center bg-gradient-platinum rounded-xl shrink-0">
                   <MessageCircle className="h-5 w-5 text-ink-900" />
                 </div>
                 <div>
@@ -43,7 +43,7 @@ export default function ContactPage() {
                 </div>
               </li>
               <li className="bg-pearl p-6 flex items-start gap-5">
-                <div className="flex h-12 w-12 items-center justify-center bg-gradient-platinum shrink-0">
+                <div className="flex h-12 w-12 items-center justify-center bg-gradient-platinum rounded-xl shrink-0">
                   <Phone className="h-5 w-5 text-ink-900" />
                 </div>
                 <div>
@@ -58,7 +58,7 @@ export default function ContactPage() {
                 </div>
               </li>
               <li className="bg-pearl p-6 flex items-start gap-5">
-                <div className="flex h-12 w-12 items-center justify-center bg-gradient-platinum shrink-0">
+                <div className="flex h-12 w-12 items-center justify-center bg-gradient-platinum rounded-xl shrink-0">
                   <Mail className="h-5 w-5 text-ink-900" />
                 </div>
                 <div>
@@ -73,7 +73,7 @@ export default function ContactPage() {
                 </div>
               </li>
               <li className="bg-pearl p-6 flex items-start gap-5">
-                <div className="flex h-12 w-12 items-center justify-center bg-gradient-platinum shrink-0">
+                <div className="flex h-12 w-12 items-center justify-center bg-gradient-platinum rounded-xl shrink-0">
                   <MapPin className="h-5 w-5 text-ink-900" />
                 </div>
                 <div>
@@ -101,7 +101,7 @@ export default function ContactPage() {
 
           <div className="lg:col-span-7">
             <Reveal>
-              <div className="bg-pearl-200 border border-ink-100 p-8 md:p-12">
+              <div className="bg-pearl-200 border border-ink-100 p-8 rounded-2xl md:p-12">
                 <div className="eyebrow mb-3">SEND MESSAGE</div>
                 <h3 className="font-sans font-black text-2xl md:text-3xl mb-2">寫封訊息給我們</h3>
                 <p className="text-ink-500 text-sm mb-8">
@@ -116,7 +116,7 @@ export default function ContactPage() {
 
       {/* MAP */}
       <section className="bg-ink-900">
-        <div className="aspect-[16/9] md:aspect-[21/9] bg-ink-700 overflow-hidden">
+        <div className="aspect-[16/9] md:aspect-[21/9] bg-ink-700 overflow-hidden rounded-2xl">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3690.9!2d120.30!3d22.63!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!5e0!3m2!1szh-TW!2stw!4v1700000000"
             width="100%"

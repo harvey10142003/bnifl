@@ -83,8 +83,8 @@ export default function AboutPage() {
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {values.map((v, i) => (
               <Reveal key={v.title} delay={i * 0.08}>
-                <div className="bg-pearl border border-ink-100 p-8 h-full hover:border-platinum-400 transition-colors group">
-                  <div className="inline-flex h-14 w-14 items-center justify-center bg-gradient-platinum mb-6 group-hover:scale-110 transition-transform">
+                <div className="bg-pearl border border-ink-100 p-8 rounded-2xl h-full hover:border-platinum-400 transition-colors group">
+                  <div className="inline-flex h-14 w-14 items-center justify-center bg-gradient-platinum rounded-xl mb-6 group-hover:scale-110 transition-transform">
                     <v.icon className="h-6 w-6 text-ink-900" />
                   </div>
                   <h3 className="font-sans font-black text-2xl text-ink-900 mb-3">{v.title}</h3>
@@ -117,7 +117,7 @@ export default function AboutPage() {
                       alt={m.name}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
-                    <div className="absolute top-4 left-4 bg-gradient-platinum px-3 py-1 text-[11px] tracking-widest-2 uppercase font-medium text-ink-900">
+                    <div className="absolute top-4 left-4 bg-gradient-platinum px-3 py-1 text-[11px] rounded-full tracking-widest-2 uppercase font-medium text-ink-900">
                       {m.role}
                     </div>
                   </div>

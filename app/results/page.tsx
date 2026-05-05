@@ -65,7 +65,7 @@ export default function ResultsPage() {
             description="我們的數字每週公開、每月結算、每季度檢視。透明度本身就是品質保證。"
           />
           <Reveal>
-            <div className="bg-pearl border border-ink-100 p-8 lg:p-12">
+            <div className="bg-pearl border border-ink-100 p-8 rounded-2xl lg:p-12">
               <div className="grid grid-cols-6 gap-4 lg:gap-8 items-end h-64 mb-6">
                 {monthlyResults.map((r, i) => {
                   const heightPct = (r.amount / maxAmount) * 100;
