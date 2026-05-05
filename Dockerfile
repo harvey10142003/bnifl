@@ -1,6 +1,5 @@
-FROM node:20-slim
+FROM node:20-slim AS builder
 WORKDIR /app
-
 ENV NEXT_TELEMETRY_DISABLED=1
 ENV NODE_ENV=development
 
@@ -9,13 +8,20 @@ RUN npm ci --include=dev
 
 COPY . .
 
-# Build the app. Tolerate /404 /500 prerender errors (they work at runtime via app/not-found.tsx + force-dynamic).
+# Tolerate /404 /500 prerender errors (runtime serves them dynamically via app/not-found.tsx)
 RUN npm run build || true
-RUN test -d .next/server && echo "Build artifacts present" || (echo "BUILD ARTIFACTS MISSING" && exit 1)
+RUN test -d .next/standalone || (echo "STANDALONE OUTPUT MISSING" && exit 1)
 
+FROM node:20-slim AS runner
+WORKDIR /app
 ENV NODE_ENV=production
+ENV NEXT_TELEMETRY_DISABLED=1
 ENV PORT=3000
 ENV HOSTNAME=0.0.0.0
-EXPOSE 3000
 
-CMD ["npm", "start"]
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/.next/standalone ./
+COPY --from=builder /app/.next/static ./.next/static
+
+EXPOSE 3000
+CMD ["node", "server.js"]
