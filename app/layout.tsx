@@ -42,13 +42,13 @@ export const metadata: Metadata = {
     title: site.name,
     description: site.description,
     siteName: site.name,
-    images: [{ url: '/images/logo-vertical.png', width: 1043, height: 1043, alt: site.name }]
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: site.name }]
   },
   twitter: {
     card: 'summary_large_image',
     title: site.name,
     description: site.description,
-    images: ['/images/logo-vertical.png']
+    images: ['/og-image.png']
   },
   icons: {
     icon: [
