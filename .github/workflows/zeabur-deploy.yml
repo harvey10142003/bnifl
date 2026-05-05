@@ -1,0 +1,66 @@
+name: Zeabur Auto Redeploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: zeabur-deploy
+  cancel-in-progress: false
+
+jobs:
+  redeploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Trigger Zeabur redeploy
+        run: |
+          set -e
+          response=$(curl -sS -X POST https://api.zeabur.com/graphql \
+            -H "Content-Type: application/json" \
+            -H "Authorization: Bearer ${{ secrets.ZEABUR_TOKEN }}" \
+            -d "{\"query\":\"mutation { redeployService(serviceID: \\\"${{ secrets.ZEABUR_SERVICE_ID }}\\\", environmentID: \\\"${{ secrets.ZEABUR_ENV_ID }}\\\") }\"}")
+          echo "Trigger response: $response"
+          if echo "$response" | grep -q '"errors"'; then
+            echo "::error ::Zeabur redeploy mutation failed"
+            exit 1
+          fi
+          echo "Triggered. Polling for terminal status..."
+
+      - name: Wait for deployment terminal status
+        run: |
+          set -e
+          for i in $(seq 1 90); do
+            sleep 10
+            payload=$(curl -sS -X POST https://api.zeabur.com/graphql \
+              -H "Content-Type: application/json" \
+              -H "Authorization: Bearer ${{ secrets.ZEABUR_TOKEN }}" \
+              -d "{\"query\":\"{ service(_id: \\\"${{ secrets.ZEABUR_SERVICE_ID }}\\\") { latestDeployment(environmentID: \\\"${{ secrets.ZEABUR_ENV_ID }}\\\") { _id status } } }\"}")
+            status=$(echo "$payload" | python3 -c "import sys,json; d=json.load(sys.stdin); ld=d.get('data',{}).get('service',{}).get('latestDeployment') or {}; print(ld.get('status','NONE'))")
+            echo "[$i] status=$status"
+            case "$status" in
+              RUNNING)
+                echo "::notice ::Deployment is RUNNING"
+                exit 0
+                ;;
+              FAILED|BUILDFAILED|CRASHED|REMOVED)
+                echo "::error ::Deployment ended with status=$status"
+                exit 1
+                ;;
+            esac
+          done
+          echo "::error ::Timed out waiting for deployment to settle"
+          exit 1
+
+      - name: Smoke test live URL
+        run: |
+          set -e
+          for i in $(seq 1 6); do
+            code=$(curl -sS -o /dev/null -w "%{http_code}" https://bnifl.ugomk.com)
+            echo "[$i] https://bnifl.ugomk.com -> $code"
+            if [ "$code" = "200" ]; then exit 0; fi
+            sleep 5
+          done
+          echo "::error ::Live URL did not return 200"
+          exit 1

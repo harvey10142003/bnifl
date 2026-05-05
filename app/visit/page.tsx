@@ -5,6 +5,7 @@ import { PageHero } from '@/components/PageHero';
 import { Section, SectionHeader } from '@/components/ui/Section';
 import { Reveal } from '@/components/ui/Reveal';
 import { VisitForm } from '@/components/VisitForm';
+import { VisitJsonLd } from './visit-jsonld';
 import { site } from '@/lib/data/site';
 
 export const metadata: Metadata = {
@@ -45,6 +46,7 @@ const faqs = [
 export default function VisitPage() {
   return (
     <>
+      <VisitJsonLd />
       <PageHero
         eyebrow="VISIT US"
         title="一場 2 小時的早餐會，可能改變你 10 年的事業軌跡。"

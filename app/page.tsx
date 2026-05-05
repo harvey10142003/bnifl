@@ -22,8 +22,19 @@ export default function HomePage() {
       {/* HERO */}
       <section className="relative overflow-hidden bg-ink-900 text-pearl">
         <div className="absolute inset-0 grid-pattern opacity-50" />
-        <div className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full bg-platinum-500/10 blur-3xl" />
-        <div className="absolute -bottom-40 -left-40 w-[500px] h-[500px] rounded-full bg-platinum-700/10 blur-3xl" />
+        {/* 品牌地球線網水印 */}
+        <div className="absolute -right-24 top-1/2 -translate-y-1/2 w-[760px] h-[760px] opacity-[0.07] pointer-events-none mix-blend-screen hidden md:block">
+          <Image
+            src="/images/logo-vertical.png"
+            alt=""
+            fill
+            className="object-contain"
+            priority={false}
+            aria-hidden="true"
+          />
+        </div>
+        <div className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full bg-teal-500/15 blur-3xl" />
+        <div className="absolute -bottom-40 -left-40 w-[500px] h-[500px] rounded-full bg-teal-700/20 blur-3xl" />
 
         <div className="container-bnifl relative grid gap-16 py-24 lg:grid-cols-12 lg:py-36">
           <div className="lg:col-span-7 flex flex-col justify-center">
