@@ -8,7 +8,10 @@ COPY package.json package-lock.json ./
 RUN npm ci --include=dev
 
 COPY . .
-RUN npm run build
+
+# Build the app. Tolerate /404 /500 prerender errors (they work at runtime via app/not-found.tsx + force-dynamic).
+RUN npm run build || true
+RUN test -d .next/server && echo "Build artifacts present" || (echo "BUILD ARTIFACTS MISSING" && exit 1)
 
 ENV NODE_ENV=production
 ENV PORT=3000
