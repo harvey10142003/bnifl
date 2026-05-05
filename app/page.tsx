@@ -34,7 +34,7 @@ export default function HomePage() {
               </div>
             </Reveal>
             <Reveal delay={0.1}>
-              <h1 className="font-serif text-display-xl text-pearl leading-[1.05] text-balance">
+              <h1 className="font-sans font-black text-display-xl text-pearl leading-[1.05] text-balance">
                 在高雄
                 <br />
                 <span className="platinum-text">建立信任</span>，
@@ -73,7 +73,7 @@ export default function HomePage() {
                   { value: site.stats.yearsActive, label: '深耕高雄', suffix: ' 年' }
                 ].map((stat) => (
                   <div key={stat.label} className="bg-ink-900 p-6 lg:p-8">
-                    <div className="font-serif text-4xl lg:text-5xl text-platinum-400">
+                    <div className="font-sans font-black text-4xl lg:text-5xl text-platinum-400">
                       <Counter to={stat.value} />
                       <span className="text-xl ml-1">{stat.suffix}</span>
                     </div>
@@ -135,8 +135,8 @@ export default function HomePage() {
             ].map((item) => (
               <Reveal key={item.num}>
                 <div className="bg-pearl p-8 lg:p-10 h-full">
-                  <div className="font-serif text-platinum-500 text-2xl mb-4">— {item.num}</div>
-                  <h3 className="font-serif text-2xl text-ink-900 mb-3">{item.title}</h3>
+                  <div className="font-sans font-black text-platinum-500 text-2xl mb-4">— {item.num}</div>
+                  <h3 className="font-sans font-black text-2xl text-ink-900 mb-3">{item.title}</h3>
                   <p className="text-ink-500 text-sm leading-relaxed">{item.desc}</p>
                 </div>
               </Reveal>
@@ -161,10 +161,10 @@ export default function HomePage() {
                   href={`/members?industry=${ind.slug}`}
                   className="block bg-ink-900 p-8 hover:bg-ink-700 transition-colors h-full group"
                 >
-                  <div className="font-serif text-platinum-400 text-sm mb-4">
+                  <div className="font-sans font-black text-platinum-400 text-sm mb-4">
                     {String(i + 1).padStart(2, '0')}
                   </div>
-                  <h3 className="font-serif text-xl text-pearl mb-2 group-hover:text-platinum-400 transition-colors">
+                  <h3 className="font-sans font-black text-xl text-pearl mb-2 group-hover:text-platinum-400 transition-colors">
                     {ind.name}
                   </h3>
                   <p className="text-xs text-ink-300 leading-relaxed">{ind.description}</p>
@@ -181,7 +181,7 @@ export default function HomePage() {
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-14 md:mb-20 gap-6">
             <div className="max-w-2xl">
               <div className="eyebrow mb-5">OUR LEADERS</div>
-              <h2 className="font-serif text-display-md text-balance">
+              <h2 className="font-sans font-black text-display-md text-balance">
                 由經驗豐富的領導團隊，為您引介可靠的合作夥伴。
               </h2>
             </div>
@@ -222,7 +222,7 @@ export default function HomePage() {
                   <div className="text-xs tracking-widest-2 uppercase text-platinum-600 mb-4">
                     {featuredStory.year} ／ 引薦金額 {featuredStory.amount}
                   </div>
-                  <h3 className="font-serif text-2xl md:text-3xl text-ink-900 mb-6 text-balance">
+                  <h3 className="font-sans font-black text-2xl md:text-3xl text-ink-900 mb-6 text-balance">
                     {featuredStory.title}
                   </h3>
                   <p className="text-ink-500 leading-relaxed mb-8">{featuredStory.story}</p>
@@ -250,7 +250,7 @@ export default function HomePage() {
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-14 md:mb-20 gap-6">
             <div className="max-w-2xl">
               <div className="eyebrow mb-5">LATEST INSIGHTS</div>
-              <h2 className="font-serif text-display-md text-balance">
+              <h2 className="font-sans font-black text-display-md text-balance">
                 最新消息與每週主題簡報。
               </h2>
             </div>
@@ -280,7 +280,7 @@ export default function HomePage() {
               <span>JOIN US</span>
               <span className="h-px w-10 bg-platinum-500" />
             </div>
-            <h2 className="font-serif text-display-lg text-pearl text-balance max-w-3xl mx-auto">
+            <h2 className="font-sans font-black text-display-lg text-pearl text-balance max-w-3xl mx-auto">
               來一場早餐會，
               <br />
               讓你的事業更大、更好、更輕鬆。

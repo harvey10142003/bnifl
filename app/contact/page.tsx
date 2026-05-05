@@ -25,7 +25,7 @@ export default function ContactPage() {
         <div className="container-bnifl grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <div className="eyebrow mb-5">REACH US</div>
-            <h2 className="font-serif text-display-sm text-balance mb-10">
+            <h2 className="font-sans font-black text-display-sm text-balance mb-10">
               四種方式找到我們。
             </h2>
 
@@ -36,7 +36,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <div className="text-xs tracking-widest-2 uppercase text-platinum-600 mb-1">LINE 官方帳號</div>
-                  <a href={site.contact.lineUrl} className="font-serif text-xl text-ink-900 hover:text-platinum-700 transition-colors">
+                  <a href={site.contact.lineUrl} className="font-sans font-black text-xl text-ink-900 hover:text-platinum-700 transition-colors">
                     {site.contact.line}
                   </a>
                   <p className="text-xs text-ink-500 mt-1">最快回覆 · 即時諮詢</p>
@@ -50,7 +50,7 @@ export default function ContactPage() {
                   <div className="text-xs tracking-widest-2 uppercase text-platinum-600 mb-1">電話</div>
                   <a
                     href={`tel:${site.contact.phone}`}
-                    className="font-serif text-xl text-ink-900 hover:text-platinum-700 transition-colors"
+                    className="font-sans font-black text-xl text-ink-900 hover:text-platinum-700 transition-colors"
                   >
                     {site.contact.phone}
                   </a>
@@ -65,7 +65,7 @@ export default function ContactPage() {
                   <div className="text-xs tracking-widest-2 uppercase text-platinum-600 mb-1">Email</div>
                   <a
                     href={`mailto:${site.contact.email}`}
-                    className="font-serif text-xl text-ink-900 hover:text-platinum-700 transition-colors break-all"
+                    className="font-sans font-black text-xl text-ink-900 hover:text-platinum-700 transition-colors break-all"
                   >
                     {site.contact.email}
                   </a>
@@ -78,7 +78,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <div className="text-xs tracking-widest-2 uppercase text-platinum-600 mb-1">例會地點</div>
-                  <div className="font-serif text-xl text-ink-900">{site.meeting.location}</div>
+                  <div className="font-sans font-black text-xl text-ink-900">{site.meeting.location}</div>
                   <p className="text-xs text-ink-500 mt-1">{site.meeting.address}</p>
                 </div>
               </li>
@@ -103,7 +103,7 @@ export default function ContactPage() {
             <Reveal>
               <div className="bg-pearl-200 border border-ink-100 p-8 md:p-12">
                 <div className="eyebrow mb-3">SEND MESSAGE</div>
-                <h3 className="font-serif text-2xl md:text-3xl mb-2">寫封訊息給我們</h3>
+                <h3 className="font-sans font-black text-2xl md:text-3xl mb-2">寫封訊息給我們</h3>
                 <p className="text-ink-500 text-sm mb-8">
                   我們會在 1–2 個工作日內回覆，急件請直接 LINE。
                 </p>

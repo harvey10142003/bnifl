@@ -52,7 +52,7 @@ export function SectionHeader({
       )}
       <h2
         className={cn(
-          'font-serif text-display-md text-balance',
+          'font-sans font-black text-display-md text-balance',
           light ? 'text-pearl' : 'text-ink-900'
         )}
       >

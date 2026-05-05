@@ -58,7 +58,7 @@ export default function MemberDetailPage({ params }: { params: { slug: string } 
                 返回會員列表
               </Link>
               <div className="eyebrow text-platinum-400 mb-5">{industry?.name}</div>
-              <h1 className="font-serif text-display-lg text-pearl mb-4">{member.name}</h1>
+              <h1 className="font-sans font-black text-display-lg text-pearl mb-4">{member.name}</h1>
               <p className="text-xl text-ink-200 mb-2">{member.title}</p>
               <p className="text-lg text-platinum-400">{member.company}</p>
               <div className="mt-10 flex flex-wrap gap-4">
@@ -93,24 +93,24 @@ export default function MemberDetailPage({ params }: { params: { slug: string } 
         <div className="container-bnifl grid gap-16 lg:grid-cols-12">
           <div className="lg:col-span-7">
             <div className="eyebrow mb-5">PROFILE</div>
-            <h2 className="font-serif text-display-sm mb-8">關於 {member.name}</h2>
+            <h2 className="font-sans font-black text-display-sm mb-8">關於 {member.name}</h2>
             <p className="body-base text-pretty whitespace-pre-line">{member.bio}</p>
 
             <div className="mt-12 grid grid-cols-2 gap-px bg-ink-100 border border-ink-100">
               <div className="bg-pearl p-6">
                 <div className="eyebrow mb-2">入會年份</div>
-                <div className="font-serif text-2xl text-ink-900">{member.joinedYear}</div>
+                <div className="font-sans font-black text-2xl text-ink-900">{member.joinedYear}</div>
               </div>
               <div className="bg-pearl p-6">
                 <div className="eyebrow mb-2">產業類別</div>
-                <div className="font-serif text-2xl text-ink-900">{industry?.name}</div>
+                <div className="font-sans font-black text-2xl text-ink-900">{industry?.name}</div>
               </div>
             </div>
           </div>
           <div className="lg:col-span-5">
             <div className="bg-pearl-200 border border-ink-100 p-8 lg:p-10">
               <div className="eyebrow mb-5">提供服務</div>
-              <h3 className="font-serif text-2xl mb-6">能為您解決的事</h3>
+              <h3 className="font-sans font-black text-2xl mb-6">能為您解決的事</h3>
               <ul className="space-y-3">
                 {member.services.map((s) => (
                   <li key={s} className="flex items-start gap-3 text-ink-500">
@@ -150,7 +150,7 @@ export default function MemberDetailPage({ params }: { params: { slug: string } 
       <Section className="bg-pearl-200">
         <div className="container-bnifl">
           <div className="flex items-end justify-between mb-12 gap-6">
-            <h2 className="font-serif text-display-sm">
+            <h2 className="font-sans font-black text-display-sm">
               {related.length > 0 ? `更多${industry?.name}會員` : '推薦其他會員'}
             </h2>
             <Link href="/members" className="btn-ghost">

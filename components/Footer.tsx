@@ -1,28 +1,27 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { site, navItems } from '@/lib/data/site';
 import { Mail, Phone, MapPin, Clock } from 'lucide-react';
 
 export function Footer() {
   return (
-    <footer className="bg-ink-900 text-pearl-200">
+    <footer className="bg-ink-700 text-pearl-200">
       <div className="container-bnifl grid gap-12 py-20 md:grid-cols-2 lg:grid-cols-4">
         <div>
-          <div className="flex items-center gap-3 mb-6">
-            <div className="flex h-10 w-10 items-center justify-center bg-gradient-platinum">
-              <span className="font-serif text-lg font-bold text-ink-900">福</span>
-            </div>
-            <div>
-              <div className="font-serif text-lg text-pearl">{site.shortName}</div>
-              <div className="text-[10px] tracking-widest-2 uppercase text-platinum-400">
-                BNI Platinum
-              </div>
-            </div>
-          </div>
-          <p className="text-sm leading-relaxed text-ink-300 mb-6 max-w-xs">{site.description}</p>
+          <Link href="/" className="inline-block bg-pearl px-4 py-3 mb-6">
+            <Image
+              src="/images/logo-horizontal.png"
+              alt={site.name}
+              width={220}
+              height={56}
+              className="h-10 w-auto"
+            />
+          </Link>
+          <p className="text-sm leading-relaxed text-ink-100/80 mb-6 max-w-xs">{site.description}</p>
           <div className="flex gap-3">
             <a
               href={site.contact.facebook}
-              className="flex h-10 w-10 items-center justify-center border border-ink-700 text-ink-300 hover:border-platinum-500 hover:text-platinum-400 transition-colors"
+              className="flex h-10 w-10 items-center justify-center border border-ink-500 text-ink-100 hover:border-teal-400 hover:text-teal-300 transition-colors"
               aria-label="Facebook"
             >
               <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor">
@@ -31,7 +30,7 @@ export function Footer() {
             </a>
             <a
               href={site.contact.instagram}
-              className="flex h-10 w-10 items-center justify-center border border-ink-700 text-ink-300 hover:border-platinum-500 hover:text-platinum-400 transition-colors"
+              className="flex h-10 w-10 items-center justify-center border border-ink-500 text-ink-100 hover:border-teal-400 hover:text-teal-300 transition-colors"
               aria-label="Instagram"
             >
               <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor">
@@ -40,7 +39,7 @@ export function Footer() {
             </a>
             <a
               href={site.contact.lineUrl}
-              className="flex h-10 w-10 items-center justify-center border border-ink-700 text-ink-300 hover:border-platinum-500 hover:text-platinum-400 transition-colors"
+              className="flex h-10 w-10 items-center justify-center border border-ink-500 text-ink-100 hover:border-teal-400 hover:text-teal-300 transition-colors"
               aria-label="LINE"
             >
               <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor">
@@ -51,13 +50,13 @@ export function Footer() {
         </div>
 
         <div>
-          <div className="eyebrow text-platinum-400 mb-5">網站導覽</div>
+          <div className="eyebrow text-teal-400 mb-5">網站導覽</div>
           <ul className="space-y-3">
             {navItems.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="text-sm text-ink-300 hover:text-platinum-400 transition-colors"
+                  className="text-sm text-ink-100/80 hover:text-teal-300 transition-colors"
                 >
                   {item.label}
                 </Link>
@@ -67,10 +66,10 @@ export function Footer() {
         </div>
 
         <div>
-          <div className="eyebrow text-platinum-400 mb-5">例會資訊</div>
-          <ul className="space-y-3 text-sm text-ink-300">
+          <div className="eyebrow text-teal-400 mb-5">例會資訊</div>
+          <ul className="space-y-3 text-sm text-ink-100/80">
             <li className="flex items-start gap-3">
-              <Clock className="h-4 w-4 text-platinum-400 mt-0.5 shrink-0" />
+              <Clock className="h-4 w-4 text-teal-400 mt-0.5 shrink-0" />
               <span>
                 {site.meeting.day}
                 <br />
@@ -78,7 +77,7 @@ export function Footer() {
               </span>
             </li>
             <li className="flex items-start gap-3">
-              <MapPin className="h-4 w-4 text-platinum-400 mt-0.5 shrink-0" />
+              <MapPin className="h-4 w-4 text-teal-400 mt-0.5 shrink-0" />
               <span>
                 {site.meeting.location}
                 <br />
@@ -89,36 +88,36 @@ export function Footer() {
         </div>
 
         <div>
-          <div className="eyebrow text-platinum-400 mb-5">聯絡我們</div>
-          <ul className="space-y-3 text-sm text-ink-300">
+          <div className="eyebrow text-teal-400 mb-5">聯絡我們</div>
+          <ul className="space-y-3 text-sm text-ink-100/80">
             <li className="flex items-center gap-3">
-              <Phone className="h-4 w-4 text-platinum-400 shrink-0" />
-              <a href={`tel:${site.contact.phone}`} className="hover:text-platinum-400 transition-colors">
+              <Phone className="h-4 w-4 text-teal-400 shrink-0" />
+              <a href={`tel:${site.contact.phone}`} className="hover:text-teal-300 transition-colors">
                 {site.contact.phone}
               </a>
             </li>
             <li className="flex items-center gap-3">
-              <Mail className="h-4 w-4 text-platinum-400 shrink-0" />
+              <Mail className="h-4 w-4 text-teal-400 shrink-0" />
               <a
                 href={`mailto:${site.contact.email}`}
-                className="hover:text-platinum-400 transition-colors break-all"
+                className="hover:text-teal-300 transition-colors break-all"
               >
                 {site.contact.email}
               </a>
             </li>
           </ul>
-          <Link href="/visit" className="btn-platinum mt-6 w-full">
+          <Link href="/visit" className="btn-teal mt-6 w-full">
             預約參訪
           </Link>
         </div>
       </div>
 
-      <div className="border-t border-ink-700/60">
+      <div className="border-t border-ink-500/40">
         <div className="container-bnifl flex flex-col md:flex-row items-center justify-between py-6 gap-3">
-          <p className="text-xs text-ink-400">
+          <p className="text-xs text-ink-200/70">
             © {new Date().getFullYear()} {site.name}. All Rights Reserved.
           </p>
-          <p className="text-[10px] tracking-widest-2 uppercase text-ink-400">
+          <p className="text-[10px] tracking-widest-2 uppercase text-ink-200/70">
             Givers Gain<sup>®</sup> · Powered by Ugomk
           </p>
         </div>

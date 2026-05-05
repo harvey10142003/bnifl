@@ -4,8 +4,8 @@
 
 @layer base {
   :root {
-    --color-ink: 11 20 38;
-    --color-platinum: 201 180 124;
+    --color-ink: 31 45 61;
+    --color-teal: 79 157 160;
     --color-pearl: 250 250 247;
   }
 
@@ -16,18 +16,18 @@
   }
 
   body {
-    @apply bg-pearl text-ink-900 font-sans;
+    @apply bg-pearl text-ink-700 font-sans;
     font-feature-settings: 'cv11', 'ss01';
   }
 
   ::selection {
-    @apply bg-platinum-300 text-ink-900;
+    @apply bg-teal-200 text-ink-900;
   }
 
   ::-webkit-scrollbar { width: 10px; height: 10px; }
   ::-webkit-scrollbar-track { background: #FAFAF7; }
-  ::-webkit-scrollbar-thumb { background: #C9B47C; border-radius: 6px; }
-  ::-webkit-scrollbar-thumb:hover { background: #B89C5F; }
+  ::-webkit-scrollbar-thumb { background: #4F9DA0; border-radius: 6px; }
+  ::-webkit-scrollbar-thumb:hover { background: #346B6E; }
 }
 
 @layer components {
@@ -35,24 +35,25 @@
     @apply mx-auto w-full max-w-[1280px] px-6 md:px-10 lg:px-16;
   }
 
+  /* 標題系統：黑體 + 重粗體（呼應 logo 字型） */
   .heading-display {
-    @apply font-serif text-display-xl text-ink-900;
+    @apply font-sans font-black text-display-xl text-ink-700;
   }
 
   .heading-1 {
-    @apply font-serif text-display-lg text-ink-900;
+    @apply font-sans font-black text-display-lg text-ink-700;
   }
 
   .heading-2 {
-    @apply font-serif text-display-md text-ink-900;
+    @apply font-sans font-black text-display-md text-ink-700;
   }
 
   .heading-3 {
-    @apply font-serif text-display-sm text-ink-900;
+    @apply font-sans font-bold text-display-sm text-ink-700;
   }
 
   .eyebrow {
-    @apply text-xs md:text-sm font-medium tracking-widest-2 uppercase text-platinum-600;
+    @apply text-xs md:text-sm font-medium tracking-widest-2 uppercase text-teal-600;
   }
 
   .body-lg {
@@ -64,31 +65,35 @@
   }
 
   .btn {
-    @apply inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-medium tracking-wider uppercase transition-all duration-300;
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-semibold tracking-wider uppercase transition-all duration-300;
   }
 
   .btn-primary {
-    @apply btn bg-ink-900 text-pearl hover:bg-ink-700;
+    @apply btn bg-ink-700 text-pearl hover:bg-ink-800;
   }
 
   .btn-platinum {
-    @apply btn bg-gradient-platinum text-ink-900 hover:shadow-lg hover:shadow-platinum-300/50;
+    @apply btn bg-teal-500 text-pearl hover:bg-teal-600 hover:shadow-lg hover:shadow-teal-500/30;
+  }
+
+  .btn-teal {
+    @apply btn bg-teal-500 text-pearl hover:bg-teal-600 hover:shadow-lg hover:shadow-teal-500/30;
   }
 
   .btn-outline {
-    @apply btn border border-ink-900 text-ink-900 hover:bg-ink-900 hover:text-pearl;
+    @apply btn border border-ink-700 text-ink-700 hover:bg-ink-700 hover:text-pearl;
   }
 
   .btn-ghost {
-    @apply btn text-ink-900 hover:text-platinum-600;
+    @apply btn text-ink-700 hover:text-teal-600;
   }
 
   .divider-platinum {
-    @apply h-px w-12 bg-gradient-platinum;
+    @apply h-px w-12 bg-teal-500;
   }
 
   .card-elevated {
-    @apply bg-pearl border border-ink-100 hover:border-platinum-300 transition-all duration-500;
+    @apply bg-pearl border border-ink-100 hover:border-teal-300 transition-all duration-500;
   }
 }
 
@@ -100,17 +105,21 @@
   .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
 
   .platinum-text {
-    @apply bg-gradient-platinum bg-clip-text text-transparent;
+    @apply text-teal-500;
+  }
+
+  .teal-text {
+    @apply text-teal-500;
   }
 
   .grid-pattern {
     background-image:
-      linear-gradient(rgba(201, 180, 124, 0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(201, 180, 124, 0.04) 1px, transparent 1px);
+      linear-gradient(rgba(124, 190, 193, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(124, 190, 193, 0.06) 1px, transparent 1px);
     background-size: 80px 80px;
   }
 
-  .glow-platinum {
-    box-shadow: 0 0 60px -12px rgba(201, 180, 124, 0.5);
+  .glow-teal {
+    box-shadow: 0 0 60px -12px rgba(79, 157, 160, 0.5);
   }
 }

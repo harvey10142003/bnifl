@@ -1,27 +1,20 @@
 import type { Metadata } from 'next';
-import { Inter, Playfair_Display, Noto_Sans_TC, Noto_Serif_TC } from 'next/font/google';
+import { Inter, Noto_Sans_TC } from 'next/font/google';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { site } from '@/lib/data/site';
 import './globals.css';
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' });
-const playfair = Playfair_Display({
+const inter = Inter({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  variable: '--font-playfair',
+  weight: ['400', '500', '600', '700', '800', '900'],
+  variable: '--font-inter',
   display: 'swap'
 });
 const notoSansTC = Noto_Sans_TC({
-  weight: ['300', '400', '500', '700'],
+  weight: ['300', '400', '500', '700', '900'],
   subsets: ['latin'],
   variable: '--font-noto-sans-tc',
-  display: 'swap'
-});
-const notoSerifTC = Noto_Serif_TC({
-  weight: ['400', '500', '700', '900'],
-  subsets: ['latin'],
-  variable: '--font-noto-serif-tc',
   display: 'swap'
 });
 
@@ -38,7 +31,12 @@ export const metadata: Metadata = {
     url: site.url,
     title: site.name,
     description: site.description,
-    siteName: site.name
+    siteName: site.name,
+    images: [{ url: '/images/logo-vertical.png', width: 1080, height: 1080, alt: site.name }]
+  },
+  icons: {
+    icon: '/images/logo-vertical.png',
+    apple: '/images/logo-vertical.png'
   },
   robots: { index: true, follow: true },
   alternates: { canonical: site.url }
@@ -46,10 +44,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html
-      lang="zh-Hant-TW"
-      className={`${inter.variable} ${playfair.variable} ${notoSansTC.variable} ${notoSerifTC.variable}`}
-    >
+    <html lang="zh-Hant-TW" className={`${inter.variable} ${notoSansTC.variable}`}>
       <body className="min-h-screen flex flex-col">
         <Header />
         <main className="flex-1 pt-20">{children}</main>

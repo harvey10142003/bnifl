@@ -32,7 +32,7 @@ export function NewsCard({ item, featured }: { item: News; featured?: boolean })
           {item.week && <span className="text-platinum-600">第 {item.week} 週</span>}
         </div>
         <h3
-          className={`font-serif text-balance text-ink-900 transition-colors group-hover:text-platinum-700 mb-3 ${
+          className={`font-sans font-black text-balance text-ink-900 transition-colors group-hover:text-platinum-700 mb-3 ${
             featured ? 'text-display-sm' : 'text-xl md:text-2xl'
           }`}
         >

@@ -1,35 +1,51 @@
 import type { Config } from 'tailwindcss';
 
 const config: Config = {
-  content: ['./app/**/*.{ts,tsx}', './components/**/*.{ts,tsx}'],
+  content: ['./app/**/*.{ts,tsx}', './components/**/*.{ts,tsx}', './pages/**/*.{ts,tsx}'],
   theme: {
     extend: {
       colors: {
+        // 品牌深藍（取自 logo「富聯」與「CHAPTER」字色）
         ink: {
-          DEFAULT: '#0B1426',
-          50: '#F4F5F8',
-          100: '#E5E8EE',
-          200: '#C5CCD9',
-          300: '#9AA5BB',
-          400: '#6B7891',
-          500: '#475266',
-          600: '#2E3848',
-          700: '#1A2236',
-          800: '#11192B',
-          900: '#0B1426'
+          DEFAULT: '#1F2D3D',
+          50: '#F4F6F8',
+          100: '#E2E7ED',
+          200: '#C0CAD5',
+          300: '#94A3B5',
+          400: '#67788D',
+          500: '#475A72',
+          600: '#324358',
+          700: '#1F2D3D',
+          800: '#162232',
+          900: '#0F1A28'
         },
+        // 品牌青綠（取自 logo「FULIAN」字色）
+        teal: {
+          DEFAULT: '#4F9DA0',
+          50: '#EDF6F6',
+          100: '#D4EAEB',
+          200: '#A8D4D6',
+          300: '#7CBEC1',
+          400: '#4F9DA0',
+          500: '#408588',
+          600: '#346B6E',
+          700: '#285255',
+          800: '#1B393B',
+          900: '#0E2122'
+        },
+        // 別名：保留 platinum 命名相容性，值對應到品牌青綠
         platinum: {
-          DEFAULT: '#C9B47C',
-          50: '#FBF9F2',
-          100: '#F5F0DF',
-          200: '#EBE0BA',
-          300: '#DECC93',
-          400: '#C9B47C',
-          500: '#B89C5F',
-          600: '#9A8048',
-          700: '#76623A',
-          800: '#52442B',
-          900: '#33291A'
+          DEFAULT: '#4F9DA0',
+          50: '#EDF6F6',
+          100: '#D4EAEB',
+          200: '#A8D4D6',
+          300: '#7CBEC1',
+          400: '#4F9DA0',
+          500: '#408588',
+          600: '#346B6E',
+          700: '#285255',
+          800: '#1B393B',
+          900: '#0E2122'
         },
         pearl: {
           DEFAULT: '#FAFAF7',
@@ -41,8 +57,9 @@ const config: Config = {
       },
       fontFamily: {
         sans: ['var(--font-noto-sans-tc)', 'var(--font-inter)', 'system-ui', 'sans-serif'],
-        serif: ['var(--font-noto-serif-tc)', 'var(--font-playfair)', 'Georgia', 'serif'],
-        display: ['var(--font-playfair)', 'var(--font-noto-serif-tc)', 'serif']
+        // 中文襯線改成中文黑體（Noto Sans TC heavy）配合 logo 字型
+        serif: ['var(--font-noto-sans-tc)', 'var(--font-inter)', 'system-ui', 'sans-serif'],
+        display: ['var(--font-noto-sans-tc)', 'var(--font-inter)', 'system-ui', 'sans-serif']
       },
       fontSize: {
         'display-xl': ['clamp(3rem, 7vw, 6.5rem)', { lineHeight: '1.05', letterSpacing: '-0.02em' }],
@@ -54,10 +71,10 @@ const config: Config = {
         'widest-2': '0.25em'
       },
       backgroundImage: {
-        'gradient-platinum': 'linear-gradient(135deg, #DECC93 0%, #C9B47C 50%, #9A8048 100%)',
-        'gradient-ink': 'linear-gradient(180deg, #0B1426 0%, #1A2236 100%)',
-        'gradient-pearl': 'linear-gradient(180deg, #FFFFFF 0%, #FAFAF7 100%)',
-        'noise': 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'n\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23n)\' opacity=\'0.4\'/%3E%3C/svg%3E")'
+        'gradient-platinum': 'linear-gradient(135deg, #7CBEC1 0%, #4F9DA0 50%, #285255 100%)',
+        'gradient-teal': 'linear-gradient(135deg, #7CBEC1 0%, #4F9DA0 50%, #285255 100%)',
+        'gradient-ink': 'linear-gradient(180deg, #1F2D3D 0%, #2A3F58 100%)',
+        'gradient-pearl': 'linear-gradient(180deg, #FFFFFF 0%, #FAFAF7 100%)'
       },
       animation: {
         'fade-in': 'fadeIn 0.8s ease-out',

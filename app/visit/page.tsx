@@ -57,7 +57,7 @@ export default function VisitPage() {
           <div className="lg:col-span-5">
             <div className="sticky top-32">
               <div className="eyebrow mb-5">MEETING DETAILS</div>
-              <h2 className="font-serif text-display-sm text-balance mb-8">
+              <h2 className="font-sans font-black text-display-sm text-balance mb-8">
                 每週四清晨，
                 <br />
                 高雄福華大飯店相見。
@@ -101,7 +101,7 @@ export default function VisitPage() {
           <div className="lg:col-span-7">
             <div className="bg-pearl-200 border border-ink-100 p-8 md:p-12">
               <div className="eyebrow mb-3">RSVP FORM</div>
-              <h3 className="font-serif text-2xl md:text-3xl mb-2">線上參訪預約</h3>
+              <h3 className="font-sans font-black text-2xl md:text-3xl mb-2">線上參訪預約</h3>
               <p className="text-ink-500 text-sm mb-8">
                 送出後將由訪客委員會於 24 小時內聯繫您，確認席次與當週狀況。
               </p>
@@ -126,7 +126,7 @@ export default function VisitPage() {
                   <div className="inline-flex h-12 w-12 items-center justify-center bg-gradient-platinum mb-5">
                     <e.icon className="h-5 w-5 text-ink-900" />
                   </div>
-                  <h3 className="font-serif text-xl text-ink-900 mb-3">{e.title}</h3>
+                  <h3 className="font-sans font-black text-xl text-ink-900 mb-3">{e.title}</h3>
                   <p className="text-sm text-ink-500 leading-relaxed">{e.desc}</p>
                 </div>
               </Reveal>
@@ -147,7 +147,7 @@ export default function VisitPage() {
             {faqs.map((f, i) => (
               <details key={i} className="group bg-pearl">
                 <summary className="cursor-pointer list-none p-6 md:p-8 flex items-start justify-between gap-6 hover:bg-pearl-200 transition-colors">
-                  <h3 className="font-serif text-lg md:text-xl text-ink-900 pr-4">
+                  <h3 className="font-sans font-black text-lg md:text-xl text-ink-900 pr-4">
                     Q. {f.q}
                   </h3>
                   <span className="flex h-8 w-8 items-center justify-center bg-ink-100 group-open:bg-gradient-platinum text-ink-900 transition-all shrink-0">
@@ -167,7 +167,7 @@ export default function VisitPage() {
       <Section dark className="text-center">
         <div className="container-bnifl">
           <Reveal>
-            <h2 className="font-serif text-display-md text-pearl text-balance max-w-3xl mx-auto">
+            <h2 className="font-sans font-black text-display-md text-pearl text-balance max-w-3xl mx-auto">
               還在猶豫？讓 LINE 來幫你預約。
             </h2>
             <p className="mt-6 text-ink-200">直接掃 QR Code 或點擊加入，由訪客委員會即時為您服務。</p>

@@ -40,7 +40,7 @@ export default function AboutPage() {
         <div className="container-bnifl grid gap-16 lg:grid-cols-12 lg:items-center">
           <div className="lg:col-span-5">
             <div className="eyebrow mb-5">OUR STORY</div>
-            <h2 className="font-serif text-display-md text-balance mb-6">
+            <h2 className="font-sans font-black text-display-md text-balance mb-6">
               從一場早餐會，
               <br />
               到 60+ 家企業的信任網絡。
@@ -87,7 +87,7 @@ export default function AboutPage() {
                   <div className="inline-flex h-14 w-14 items-center justify-center bg-gradient-platinum mb-6 group-hover:scale-110 transition-transform">
                     <v.icon className="h-6 w-6 text-ink-900" />
                   </div>
-                  <h3 className="font-serif text-2xl text-ink-900 mb-3">{v.title}</h3>
+                  <h3 className="font-sans font-black text-2xl text-ink-900 mb-3">{v.title}</h3>
                   <p className="text-ink-500 text-sm leading-relaxed">{v.desc}</p>
                 </div>
               </Reveal>
@@ -122,7 +122,7 @@ export default function AboutPage() {
                     </div>
                   </div>
                   <div className="p-5">
-                    <h3 className="font-serif text-xl text-ink-900 mb-1">{m.name}</h3>
+                    <h3 className="font-sans font-black text-xl text-ink-900 mb-1">{m.name}</h3>
                     <p className="text-sm text-ink-500">{m.title}</p>
                     <p className="text-xs text-ink-400 mt-1">{m.company}</p>
                   </div>
@@ -204,8 +204,8 @@ export default function AboutPage() {
             {steps.map((s, i) => (
               <Reveal key={s.num} delay={i * 0.08}>
                 <div className="bg-pearl p-8 lg:p-10 h-full">
-                  <div className="font-serif text-platinum-500 text-3xl mb-4">{s.num}</div>
-                  <h3 className="font-serif text-xl text-ink-900 mb-3">{s.title}</h3>
+                  <div className="font-sans font-black text-platinum-500 text-3xl mb-4">{s.num}</div>
+                  <h3 className="font-sans font-black text-xl text-ink-900 mb-3">{s.title}</h3>
                   <p className="text-ink-500 text-sm leading-relaxed">{s.desc}</p>
                 </div>
               </Reveal>

@@ -46,7 +46,7 @@ export function ContactForm() {
         <div className="inline-flex h-16 w-16 items-center justify-center bg-gradient-platinum mb-6">
           <Check className="h-8 w-8 text-ink-900" />
         </div>
-        <h3 className="font-serif text-2xl text-ink-900 mb-3">訊息已送出</h3>
+        <h3 className="font-sans font-black text-2xl text-ink-900 mb-3">訊息已送出</h3>
         <p className="text-ink-500 mb-6">我們將於 1–2 個工作日內回覆。</p>
         <button onClick={() => setStatus('idle')} className="btn-outline" type="button">
           再寫一封

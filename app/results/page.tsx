@@ -30,7 +30,7 @@ export default function ResultsPage() {
           <div className="grid gap-px bg-ink-100 border border-ink-100 lg:grid-cols-3">
             <div className="bg-pearl p-10 lg:p-14">
               <div className="eyebrow mb-4 text-platinum-600">CUMULATIVE</div>
-              <div className="font-serif text-6xl lg:text-7xl text-ink-900 mb-2">
+              <div className="font-sans font-black text-6xl lg:text-7xl text-ink-900 mb-2">
                 <Counter to={site.stats.referralAmount / 100_000_000} decimals={2} />
                 <span className="text-3xl ml-2">億</span>
               </div>
@@ -38,7 +38,7 @@ export default function ResultsPage() {
             </div>
             <div className="bg-pearl p-10 lg:p-14">
               <div className="eyebrow mb-4 text-platinum-600">REFERRALS</div>
-              <div className="font-serif text-6xl lg:text-7xl text-ink-900 mb-2">
+              <div className="font-sans font-black text-6xl lg:text-7xl text-ink-900 mb-2">
                 <Counter to={site.stats.referralCount} />
                 <span className="text-3xl ml-2">筆</span>
               </div>
@@ -46,7 +46,7 @@ export default function ResultsPage() {
             </div>
             <div className="bg-pearl p-10 lg:p-14">
               <div className="eyebrow mb-4 text-platinum-600">AVG / MEMBER</div>
-              <div className="font-serif text-6xl lg:text-7xl text-ink-900 mb-2">
+              <div className="font-sans font-black text-6xl lg:text-7xl text-ink-900 mb-2">
                 <Counter to={Math.round(site.stats.referralAmount / site.stats.members / 10_000)} />
                 <span className="text-3xl ml-2">萬</span>
               </div>
@@ -72,7 +72,7 @@ export default function ResultsPage() {
                   return (
                     <div key={r.month} className="flex flex-col items-center gap-3">
                       <div className="w-full flex flex-col items-center gap-2">
-                        <div className="text-xs font-serif text-ink-700">
+                        <div className="text-xs font-sans font-black text-ink-700">
                           {(r.amount / 10_000_000).toFixed(1)}千萬
                         </div>
                         <div
@@ -110,17 +110,17 @@ export default function ResultsPage() {
               <Reveal key={story.slug} delay={i * 0.05}>
                 <div className="grid gap-8 lg:grid-cols-12 lg:gap-16 border-t border-ink-100 pt-12">
                   <div className="lg:col-span-4">
-                    <div className="font-serif text-platinum-500 text-5xl mb-4">
+                    <div className="font-sans font-black text-platinum-500 text-5xl mb-4">
                       {String(i + 1).padStart(2, '0')}
                     </div>
                     <div className="text-xs tracking-widest-2 uppercase text-platinum-600 mb-3">
                       {story.year}
                     </div>
-                    <div className="font-serif text-3xl text-ink-900 mb-4">{story.amount}</div>
+                    <div className="font-sans font-black text-3xl text-ink-900 mb-4">{story.amount}</div>
                     <div className="text-sm text-ink-500">引薦金額</div>
                   </div>
                   <div className="lg:col-span-8">
-                    <h3 className="font-serif text-2xl md:text-3xl text-ink-900 mb-6 text-balance">
+                    <h3 className="font-sans font-black text-2xl md:text-3xl text-ink-900 mb-6 text-balance">
                       {story.title}
                     </h3>
                     <p className="text-ink-500 leading-relaxed mb-8">{story.story}</p>
@@ -148,7 +148,7 @@ export default function ResultsPage() {
         <div className="container-bnifl">
           <Reveal>
             <Quote className="h-10 w-10 text-platinum-400 mx-auto mb-6" />
-            <p className="font-serif text-2xl md:text-3xl text-pearl text-balance max-w-3xl mx-auto leading-relaxed">
+            <p className="font-sans font-black text-2xl md:text-3xl text-pearl text-balance max-w-3xl mx-auto leading-relaxed">
               「商業最遠的距離，不是地理，
               <br />
               而是缺少一位真正願意為你引薦的朋友。」

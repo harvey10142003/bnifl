@@ -33,7 +33,7 @@ export function MemberCard({ member }: { member: Member }) {
         <div className="text-[11px] tracking-widest-2 uppercase text-platinum-600 mb-2">
           {industry?.name ?? '—'}
         </div>
-        <h3 className="font-serif text-xl text-ink-900 mb-1">{member.name}</h3>
+        <h3 className="font-sans font-black text-xl text-ink-900 mb-1">{member.name}</h3>
         <p className="text-sm text-ink-500">{member.title}．{member.company}</p>
       </div>
     </Link>
