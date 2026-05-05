@@ -7,10 +7,7 @@ COPY package.json package-lock.json ./
 RUN npm ci --include=dev
 
 COPY . .
-
-# Tolerate /404 /500 prerender errors (runtime serves them dynamically via app/not-found.tsx)
-RUN npm run build || true
-RUN test -d .next/standalone || (echo "STANDALONE OUTPUT MISSING" && exit 1)
+RUN npm run build
 
 FROM node:20-slim AS runner
 WORKDIR /app
