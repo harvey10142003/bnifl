@@ -16,7 +16,7 @@ export type Member = {
 };
 
 const av = (seed: string) =>
-  `https://ui-avatars.com/api/?name=${encodeURIComponent(seed)}&background=0B1426&color=C9B47C&size=400&font-size=0.4&bold=true`;
+  `https://ui-avatars.com/api/?name=${encodeURIComponent(seed)}&background=1F2D3D&color=FAFAF7&size=400&font-size=0.4&bold=true`;
 
 export const members: Member[] = [
   {
