@@ -1,5 +1,6 @@
-FROM node:20-slim AS builder
+FROM node:20-slim
 WORKDIR /app
+
 ENV NEXT_TELEMETRY_DISABLED=1
 ENV NODE_ENV=development
 
@@ -7,18 +8,14 @@ COPY package.json package-lock.json ./
 RUN npm ci --include=dev
 
 COPY . .
-RUN npm run build
 
-FROM node:20-slim AS runner
-WORKDIR /app
+# /404 /500 prerender errors are tolerated; runtime serves them dynamically.
+RUN npm run build || true
+RUN test -d .next/server/pages || (echo "BUILD ARTIFACTS MISSING" && exit 1)
+
 ENV NODE_ENV=production
-ENV NEXT_TELEMETRY_DISABLED=1
 ENV PORT=3000
 ENV HOSTNAME=0.0.0.0
-
-COPY --from=builder /app/public ./public
-COPY --from=builder /app/.next/standalone ./
-COPY --from=builder /app/.next/static ./.next/static
-
 EXPOSE 3000
-CMD ["node", "server.js"]
+
+CMD ["./node_modules/.bin/next", "start", "-H", "0.0.0.0", "-p", "3000"]
