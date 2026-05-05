@@ -25,6 +25,8 @@ const notoSerifTC = Noto_Serif_TC({
   display: 'swap'
 });
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: { default: `${site.name}｜${site.tagline}`, template: `%s｜${site.name}` },
