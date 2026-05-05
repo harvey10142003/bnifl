@@ -11,11 +11,26 @@ import { members, officers } from '@/lib/data/members';
 import { news } from '@/lib/data/news';
 import { industries } from '@/lib/data/industries';
 import { successStories } from '@/lib/data/results';
+import { testimonials } from '@/lib/data/testimonials';
+import { memberBySlug } from '@/lib/data/members';
+import { TestimonialCarousel } from '@/components/ui/TestimonialCarousel';
 
 export default function HomePage() {
   const featuredMembers = officers.slice(0, 4);
   const latestNews = news.slice(0, 3);
   const featuredStory = successStories[0];
+
+  const carouselItems = testimonials
+    .map((t) => {
+      const member = memberBySlug(t.memberSlug);
+      if (!member) return null;
+      return {
+        ...t,
+        member,
+        industry: industries.find((i) => i.slug === member.industry)
+      };
+    })
+    .filter((x): x is NonNullable<typeof x> => x !== null);
 
   return (
     <>
@@ -225,6 +240,23 @@ export default function HomePage() {
                 <MemberCard member={m} />
               </Reveal>
             ))}
+          </div>
+        </div>
+      </Section>
+
+      {/* TESTIMONIALS */}
+      <Section>
+        <div className="container-bnifl">
+          <SectionHeader
+            eyebrow="MEMBER VOICES"
+            title="會員為什麼留下來。"
+            description="不是因為例會早起，是因為這裡認識的人，5 年後還在身邊。"
+            align="center"
+          />
+          <div className="max-w-5xl mx-auto">
+            <Reveal>
+              <TestimonialCarousel items={carouselItems} />
+            </Reveal>
           </div>
         </div>
       </Section>
