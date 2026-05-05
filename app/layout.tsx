@@ -66,6 +66,11 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="zh-Hant-TW" className={`${inter.variable} ${notoSansTC.variable}`}>
+      <head>
+        <link rel="preconnect" href="https://images.unsplash.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://ui-avatars.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://line.me" />
+      </head>
       <body className="min-h-screen flex flex-col">
         <JsonLd data={[organizationLd, websiteLd, localBusinessLd]} />
         <Header />

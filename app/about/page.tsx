@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Award, Users, Repeat, TrendingUp, MapPin, Clock, ArrowRight } from 'lucide-react';
 import { PageHero } from '@/components/PageHero';
 import { Section, SectionHeader } from '@/components/ui/Section';
@@ -112,10 +113,12 @@ export default function AboutPage() {
                   className="block group border border-ink-100 hover:border-platinum-400 transition-all duration-500 bg-pearl"
                 >
                   <div className="aspect-[4/5] bg-ink-900 relative overflow-hidden">
-                    <img
+                    <Image
                       src={m.avatar}
                       alt={m.name}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      fill
+                      sizes="(min-width: 1024px) 25vw, 50vw"
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                     <div className="absolute top-4 left-4 bg-gradient-platinum px-3 py-1 text-[11px] rounded-full tracking-widest-2 uppercase font-medium text-ink-900">
                       {m.role}

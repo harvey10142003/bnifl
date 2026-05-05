@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { ArrowLeft, ArrowRight, Calendar, User } from 'lucide-react';
 import { Section } from '@/components/ui/Section';
@@ -67,8 +68,15 @@ export default function NewsDetailPage({ params }: { params: { slug: string } })
       {/* COVER */}
       <div className="bg-pearl border-b border-ink-100">
         <div className="container-bnifl py-12">
-          <div className="aspect-[2/1] overflow-hidden bg-ink-900 rounded-2xl">
-            <img src={item.cover} alt={item.title} className="w-full h-full object-cover" />
+          <div className="relative aspect-[2/1] overflow-hidden bg-ink-900 rounded-2xl">
+            <Image
+              src={item.cover}
+              alt={item.title}
+              fill
+              sizes="(min-width: 768px) 1100px, 100vw"
+              priority
+              className="object-cover"
+            />
           </div>
         </div>
       </div>

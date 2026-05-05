@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { ArrowLeft, ArrowRight, Mail, Phone, Globe, MessageCircle, Check } from 'lucide-react';
 import { Section } from '@/components/ui/Section';
@@ -39,7 +40,14 @@ export default function MemberDetailPage({ params }: { params: { slug: string } 
           <div className="lg:col-span-5">
             <Reveal>
               <div className="aspect-[4/5] relative overflow-hidden bg-ink-700 rounded-2xl max-w-md">
-                <img src={member.avatar} alt={member.name} className="w-full h-full object-cover" />
+                <Image
+                  src={member.avatar}
+                  alt={member.name}
+                  fill
+                  sizes="(min-width: 1024px) 40vw, 100vw"
+                  priority
+                  className="object-cover"
+                />
                 {member.role && (
                   <div className="absolute top-4 left-4 bg-gradient-platinum px-3 py-1 text-[11px] rounded-full tracking-widest-2 uppercase font-medium text-ink-900">
                     {member.role}
