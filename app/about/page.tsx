@@ -1,14 +1,21 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Award, Users, Repeat, TrendingUp, MapPin, Clock, ArrowRight } from 'lucide-react';
+import {
+  Award, Users, Repeat, TrendingUp, MapPin, Clock, ArrowRight, Check,
+  Crown, Shield, BookOpen, Wallet, GraduationCap, UserCheck, Calendar
+} from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
 import { PageHero } from '@/components/PageHero';
 import { Section, SectionHeader } from '@/components/ui/Section';
 import { Reveal } from '@/components/ui/Reveal';
 import { officers } from '@/lib/data/members';
 import { roles, type RoleKey } from '@/lib/data/roles';
 import { site } from '@/lib/data/site';
-import * as LucideIcons from 'lucide-react';
+
+const ROLE_ICONS: Record<string, LucideIcon> = {
+  Crown, Shield, BookOpen, Wallet, GraduationCap, UserCheck, Users, Calendar
+};
 
 export const metadata: Metadata = {
   title: '關於富聯',
@@ -148,8 +155,7 @@ export default function AboutPage() {
           />
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-2">
             {roles.map((role, i) => {
-              const Icon = (LucideIcons[role.icon as keyof typeof LucideIcons] ??
-                LucideIcons.Users) as React.ComponentType<{ className?: string }>;
+              const Icon = ROLE_ICONS[role.icon] ?? Users;
               const officer = officers.find((m) => m.role === (role.key as RoleKey));
               return (
                 <Reveal key={role.key} delay={(i % 4) * 0.05}>
@@ -171,7 +177,7 @@ export default function AboutPage() {
                     <ul className="space-y-2 mb-6 flex-1">
                       {role.duties.map((d) => (
                         <li key={d} className="flex items-start gap-3 text-sm text-ink-500 leading-relaxed">
-                          <LucideIcons.Check className="h-4 w-4 text-teal-600 mt-0.5 shrink-0" />
+                          <Check className="h-4 w-4 text-teal-600 mt-0.5 shrink-0" />
                           <span>{d}</span>
                         </li>
                       ))}
