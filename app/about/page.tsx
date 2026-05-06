@@ -6,7 +6,9 @@ import { PageHero } from '@/components/PageHero';
 import { Section, SectionHeader } from '@/components/ui/Section';
 import { Reveal } from '@/components/ui/Reveal';
 import { officers } from '@/lib/data/members';
+import { roles, type RoleKey } from '@/lib/data/roles';
 import { site } from '@/lib/data/site';
+import * as LucideIcons from 'lucide-react';
 
 export const metadata: Metadata = {
   title: '關於富聯',
@@ -132,6 +134,68 @@ export default function AboutPage() {
                 </Link>
               </Reveal>
             ))}
+          </div>
+        </div>
+      </Section>
+
+      {/* ROLE DUTIES */}
+      <Section className="bg-pearl-200">
+        <div className="container-bnifl">
+          <SectionHeader
+            eyebrow="ROLES & DUTIES"
+            title="每個位置在做什麼。"
+            description="八個職位每半年輪替一次，所有會員都有機會擔任。這不是頭銜，是責任分擔。"
+          />
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-2">
+            {roles.map((role, i) => {
+              const Icon = (LucideIcons[role.icon as keyof typeof LucideIcons] ??
+                LucideIcons.Users) as React.ComponentType<{ className?: string }>;
+              const officer = officers.find((m) => m.role === (role.key as RoleKey));
+              return (
+                <Reveal key={role.key} delay={(i % 4) * 0.05}>
+                  <article className="card-flat p-8 h-full flex flex-col">
+                    <div className="flex items-start gap-4 mb-5">
+                      <div className="icon-square h-12 w-12 bg-gradient-platinum text-ink-900 shrink-0">
+                        <Icon className="h-5 w-5" />
+                      </div>
+                      <div>
+                        <div className="flex items-baseline gap-3 flex-wrap">
+                          <h3 className="font-sans font-black text-xl text-ink-700">{role.key}</h3>
+                          <span className="text-[11px] tracking-widest-2 uppercase text-teal-600">
+                            {role.nameEn}
+                          </span>
+                        </div>
+                        <p className="mt-1 text-ink-500 text-sm">{role.tagline}</p>
+                      </div>
+                    </div>
+                    <ul className="space-y-2 mb-6 flex-1">
+                      {role.duties.map((d) => (
+                        <li key={d} className="flex items-start gap-3 text-sm text-ink-500 leading-relaxed">
+                          <LucideIcons.Check className="h-4 w-4 text-teal-600 mt-0.5 shrink-0" />
+                          <span>{d}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    {officer ? (
+                      <Link
+                        href={`/members/${officer.slug}`}
+                        className="mt-auto pt-5 border-t border-ink-100 flex items-center justify-between text-sm group/link"
+                      >
+                        <span className="text-ink-400">本屆擔任</span>
+                        <span className="font-medium text-ink-700 group-hover/link:text-teal-600 transition-colors flex items-center gap-2">
+                          {officer.name}
+                          <ArrowRight className="h-3.5 w-3.5" />
+                        </span>
+                      </Link>
+                    ) : (
+                      <div className="mt-auto pt-5 border-t border-ink-100 text-sm text-ink-400">
+                        本屆暫缺
+                      </div>
+                    )}
+                  </article>
+                </Reveal>
+              );
+            })}
           </div>
         </div>
       </Section>
