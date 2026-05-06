@@ -87,18 +87,37 @@ jobs:
         if: always()
         run: |
           if [ -d .lighthouseci ]; then
-            for f in .lighthouseci/lhr-*.json; do
-              [ -f "$f" ] || continue
-              python3 -c "
-              import json, sys
-              d = json.load(open('$f'))
+            python3 - <<'PY'
+          import json, glob, os
+          rows = []
+          for f in sorted(glob.glob('.lighthouseci/lhr-*.json')):
+              try:
+                  d = json.load(open(f))
+              except Exception as e:
+                  print(f'skip {f}: {e}')
+                  continue
               url = d.get('finalUrl', '?')
               cats = d.get('categories', {})
-              line = f'{url:50s}'
-              for k in ('performance','accessibility','best-practices','seo'):
+              row = {'url': url}
+              for k in ('performance', 'accessibility', 'best-practices', 'seo'):
                   v = cats.get(k, {}).get('score')
-                  line += f'  {k}: {int(v*100) if v is not None else \"-\"}'
-              print(line)
-              " || true
-            done
+                  row[k] = int(v * 100) if v is not None else None
+              rows.append(row)
+          # 同 URL 取平均
+          from collections import defaultdict
+          agg = defaultdict(lambda: defaultdict(list))
+          for r in rows:
+              for k in ('performance', 'accessibility', 'best-practices', 'seo'):
+                  if r[k] is not None:
+                      agg[r['url']][k].append(r[k])
+          print('')
+          print(f"{'URL':55s}  perf  a11y  bp    seo")
+          print('-' * 80)
+          for url, cats in agg.items():
+              vals = []
+              for k in ('performance', 'accessibility', 'best-practices', 'seo'):
+                  v = cats.get(k)
+                  vals.append(round(sum(v) / len(v)) if v else 0)
+              print(f"{url:55s}  {vals[0]:>4d}  {vals[1]:>4d}  {vals[2]:>4d}  {vals[3]:>4d}")
+          PY
           fi
