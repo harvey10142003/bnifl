@@ -60,9 +60,9 @@ export default function HomePage() {
               </div>
             </Reveal>
             <Reveal delay={0.1}>
-              <h1 className="font-sans font-black text-display-xl text-pearl leading-[1.05]">
-                <span className="block">在高雄建立<span className="platinum-text">信任</span></span>
-                <span className="block">串聯一輩子<span className="platinum-text">商機</span></span>
+              <h1 className="font-sans font-black text-pearl text-[clamp(2.25rem,6vw,5.5rem)] leading-[1.05] break-keep">
+                <span className="block whitespace-nowrap">在高雄建立<span className="platinum-text">信任</span></span>
+                <span className="block whitespace-nowrap">串聯一輩子<span className="platinum-text">商機</span></span>
               </h1>
             </Reveal>
             <Reveal delay={0.2}>

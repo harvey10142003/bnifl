@@ -33,9 +33,9 @@ export function PageHero({
           </div>
         </Reveal>
         <Reveal delay={0.1}>
-          <h1 className="font-sans font-black text-display-lg text-pearl leading-[1.1] max-w-4xl">
-            <span className="block">{titleLines[0]}</span>
-            <span className="block">{titleLines[1]}</span>
+          <h1 className="font-sans font-black text-display-lg text-pearl leading-[1.1] max-w-4xl break-keep">
+            <span className="block whitespace-nowrap">{titleLines[0]}</span>
+            <span className="block whitespace-nowrap">{titleLines[1]}</span>
           </h1>
         </Reveal>
         {description && (
