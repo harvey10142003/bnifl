@@ -9,6 +9,7 @@ import type { LucideIcon } from 'lucide-react';
 import { PageHero } from '@/components/PageHero';
 import { Section, SectionHeader } from '@/components/ui/Section';
 import { Reveal } from '@/components/ui/Reveal';
+import { MapFacade } from '@/components/ui/MapFacade';
 import { officers } from '@/lib/data/members';
 import { roles, type RoleKey } from '@/lib/data/roles';
 import { site } from '@/lib/data/site';
@@ -107,7 +108,7 @@ export default function AboutPage() {
       </Section>
 
       {/* OFFICERS */}
-      <Section>
+      <Section className="cv-auto-tall">
         <div className="container-bnifl">
           <SectionHeader
             eyebrow="LEADERSHIP TEAM"
@@ -127,6 +128,7 @@ export default function AboutPage() {
                       alt={m.name}
                       fill
                       sizes="(min-width: 1024px) 25vw, 50vw"
+                      quality={70}
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                     <div className="absolute top-4 left-4 bg-gradient-platinum px-3 py-1 text-[11px] rounded-full tracking-widest-2 uppercase font-medium text-ink-900">
@@ -146,7 +148,7 @@ export default function AboutPage() {
       </Section>
 
       {/* ROLE DUTIES */}
-      <Section className="bg-pearl-200">
+      <Section className="bg-pearl-200 cv-auto-tall">
         <div className="container-bnifl">
           <SectionHeader
             eyebrow="ROLES & DUTIES"
@@ -207,7 +209,7 @@ export default function AboutPage() {
       </Section>
 
       {/* MEETING */}
-      <Section dark>
+      <Section dark className="cv-auto">
         <div className="container-bnifl grid gap-12 lg:grid-cols-2 lg:items-center">
           <div>
             <SectionHeader
@@ -249,23 +251,18 @@ export default function AboutPage() {
           </div>
           <div>
             <Reveal>
-              <div className="aspect-[4/3] bg-ink-700 border border-ink-700 overflow-hidden">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3690.9!2d120.30!3d22.63!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!5e0!3m2!1szh-TW!2stw!4v1700000000"
-                  width="100%"
-                  height="100%"
-                  loading="lazy"
-                  className="grayscale"
-                  title="例會地點地圖"
-                />
-              </div>
+              <MapFacade
+                label={site.meeting.location}
+                embedSrc="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3690.9!2d120.30!3d22.63!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!5e0!3m2!1szh-TW!2stw!4v1700000000"
+                fallbackHref={site.meeting.mapUrl}
+              />
             </Reveal>
           </div>
         </div>
       </Section>
 
       {/* JOIN STEPS */}
-      <Section>
+      <Section className="cv-auto">
         <div className="container-bnifl">
           <SectionHeader
             eyebrow="JOIN PROCESS"

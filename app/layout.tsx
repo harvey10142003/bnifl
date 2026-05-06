@@ -3,6 +3,7 @@ import { Inter, Noto_Sans_TC } from 'next/font/google';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { JsonLd } from '@/components/JsonLd';
+import { RevealController } from '@/components/ui/RevealController';
 import { organizationLd, websiteLd, localBusinessLd } from '@/lib/jsonld';
 import { site } from '@/lib/data/site';
 import './globals.css';
@@ -70,12 +71,21 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="preconnect" href="https://images.unsplash.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://ui-avatars.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://line.me" />
+        <noscript>
+          {/* eslint-disable-next-line react/no-danger */}
+          <style
+            dangerouslySetInnerHTML={{
+              __html: '.reveal-init{opacity:1!important;transform:none!important}'
+            }}
+          />
+        </noscript>
       </head>
       <body className="min-h-screen flex flex-col">
         <JsonLd data={[organizationLd, websiteLd, localBusinessLd]} />
         <Header />
         <main className="flex-1 pt-20">{children}</main>
         <Footer />
+        <RevealController />
       </body>
     </html>
   );
