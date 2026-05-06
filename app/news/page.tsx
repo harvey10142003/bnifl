@@ -25,8 +25,8 @@ export default function NewsPage({
     <>
       <PageHero
         eyebrow="LATEST INSIGHTS"
-        title="每週主題、每場故事，皆在此沉澱。"
-        description="從週四清晨的主題簡報，到媒體鏡頭外的會員故事 —— 這裡是富聯白金分會的時間軸。"
+        titleLines={['每週主題沉澱', '每場故事傳遞']}
+        description="從週四清晨的主題簡報 到鏡頭外的真實會員故事"
       />
 
       {/* CATEGORY FILTER */}

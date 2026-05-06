@@ -42,8 +42,8 @@ export default function AboutPage() {
     <>
       <PageHero
         eyebrow="ABOUT FULIAN"
-        title="一個充滿白金能量的高雄商務家庭。"
-        description="我們不只是 60 多位企業主的集合，而是一個以 Givers Gain® 為信仰，每週見面共寫商業故事的商務家庭。"
+        titleLines={['白金能量集結', '高雄商務家庭']}
+        description="60+ 位企業主每週相聚 以 Givers Gain® 共寫商業故事"
       />
 
       {/* STORY */}

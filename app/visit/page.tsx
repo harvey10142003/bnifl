@@ -49,8 +49,8 @@ export default function VisitPage() {
       <VisitJsonLd />
       <PageHero
         eyebrow="VISIT US"
-        title="一場 2 小時的早餐會，可能改變你 10 年的事業軌跡。"
-        description="不用提案、不用簡報，只要帶一張名片、一顆好奇的心，就能體驗高雄最具影響力的商務引薦圈。"
+        titleLines={['2 小時的早餐會', '10 年的事業軌跡']}
+        description="不用提案不用簡報 帶一張名片就能走進高雄商務圈"
       />
 
       {/* MEETING INFO + FORM */}

@@ -3,11 +3,12 @@ import { Reveal } from '@/components/ui/Reveal';
 
 export function PageHero({
   eyebrow,
-  title,
+  titleLines,
   description
 }: {
   eyebrow: string;
-  title: string;
+  /** 兩行標題，每行一句、無標點 */
+  titleLines: [string, string];
   description?: string;
 }) {
   return (
@@ -32,13 +33,16 @@ export function PageHero({
           </div>
         </Reveal>
         <Reveal delay={0.1}>
-          <h1 className="font-sans font-black text-display-lg text-pearl text-balance max-w-4xl">
-            {title}
+          <h1 className="font-sans font-black text-display-lg text-pearl leading-[1.1] max-w-4xl">
+            <span className="block">{titleLines[0]}</span>
+            <span className="block">{titleLines[1]}</span>
           </h1>
         </Reveal>
         {description && (
           <Reveal delay={0.2}>
-            <p className="mt-6 max-w-2xl body-lg text-ink-200">{description}</p>
+            <p className="mt-6 max-w-3xl body-lg text-ink-200 lg:whitespace-nowrap">
+              {description}
+            </p>
           </Reveal>
         )}
       </div>

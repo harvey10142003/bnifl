@@ -17,8 +17,8 @@ export default function ContactPage() {
     <>
       <PageHero
         eyebrow="CONTACT"
-        title="任何問題，我們都樂意回覆。"
-        description="無論是想多認識富聯、合作邀約、媒體採訪，或單純想交個朋友 —— 都歡迎聯繫我們。"
+        titleLines={['有任何問題', '我們都樂意回覆']}
+        description="認識富聯 合作邀約 媒體採訪 都歡迎來信來電"
       />
 
       <Section>

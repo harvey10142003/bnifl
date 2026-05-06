@@ -20,8 +20,8 @@ export default function ResultsPage() {
     <>
       <PageHero
         eyebrow="REFERRAL RESULTS"
-        title="2.85 億的累計引薦金額，是信任的回聲。"
-        description="這不是業績統計，而是 1,240 次真實的商業託付。每一筆引薦背後，都是一段故事、一份信任。"
+        titleLines={['累計 2.85 億引薦', '信任的真實回聲']}
+        description="1,240 次真實商業託付 每一筆都是一段信任故事"
       />
 
       {/* BIG STATS */}

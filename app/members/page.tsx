@@ -45,10 +45,14 @@ export default function MembersPage({
     <>
       <PageHero
         eyebrow="MEMBERS"
-        title={activeIndustry ? `${activeIndustry.name}產業會員` : '14 個產業．60+ 位專業會員'}
+        titleLines={
+          activeIndustry
+            ? [`${activeIndustry.name}產業`, '富聯專業會員']
+            : ['14 個產業匯流', '60+ 位專業會員']
+        }
         description={
           activeIndustry?.description ??
-          '從財務金融到生活美學，富聯白金分會匯聚高雄各產業菁英，為你提供全方位專業服務。'
+          '從財務金融到生活美學 高雄產業菁英全方位專業服務'
         }
       />
 

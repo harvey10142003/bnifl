@@ -60,17 +60,14 @@ export default function HomePage() {
               </div>
             </Reveal>
             <Reveal delay={0.1}>
-              <h1 className="font-sans font-black text-display-xl text-pearl leading-[1.05] text-balance">
-                在高雄
-                <br />
-                <span className="platinum-text">建立信任</span>，
-                <br />
-                串聯一輩子的商機。
+              <h1 className="font-sans font-black text-display-xl text-pearl leading-[1.05]">
+                <span className="block">在高雄建立<span className="platinum-text">信任</span></span>
+                <span className="block">串聯一輩子<span className="platinum-text">商機</span></span>
               </h1>
             </Reveal>
             <Reveal delay={0.2}>
-              <p className="mt-8 max-w-xl text-lg leading-relaxed text-ink-200">
-                {site.description}
+              <p className="mt-8 max-w-2xl text-lg leading-relaxed text-ink-200 lg:whitespace-nowrap">
+                集結 60+ 高雄企業主 以 Givers Gain® 共寫商業新篇章
               </p>
             </Reveal>
             <Reveal delay={0.3}>
