@@ -142,20 +142,25 @@
 
   .glow-teal { box-shadow: 0 0 60px -12px rgba(79, 157, 160, 0.5); }
 
-  /* Reveal 進場動畫（server-rendered + 單一 client controller 操控） */
-  .reveal-init {
+  /*
+   * Reveal 進場動畫
+   * server-render 預設不隱藏（避免 hydration 前看到空白標題）
+   * RevealController 在 mount 時對 below-the-fold 元素加 .reveal-pending 才開始隱藏 → 觀察 → 進場
+   * above-the-fold 元素永不被加 .reveal-pending，所以一直保持顯示
+   */
+  .reveal-init.reveal-pending {
     opacity: 0;
     transform: translateY(2rem);
     transition: opacity 700ms cubic-bezier(0.16, 1, 0.3, 1),
       transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
     will-change: opacity, transform;
   }
-  .reveal-init[data-reveal-visible] {
+  .reveal-init.reveal-pending[data-reveal-visible] {
     opacity: 1;
     transform: none;
   }
   @media (prefers-reduced-motion: reduce) {
-    .reveal-init {
+    .reveal-init.reveal-pending {
       transition: none;
       opacity: 1;
       transform: none;
