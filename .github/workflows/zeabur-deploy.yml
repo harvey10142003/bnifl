@@ -64,3 +64,41 @@ jobs:
           done
           echo "::error ::Live URL did not return 200"
           exit 1
+
+  lighthouse:
+    name: Lighthouse CI
+    needs: redeploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run Lighthouse CI
+        uses: treosh/lighthouse-ci-action@v12
+        with:
+          configPath: './.lighthouserc.json'
+          uploadArtifacts: true
+          temporaryPublicStorage: true
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Summarise scores
+        if: always()
+        run: |
+          if [ -d .lighthouseci ]; then
+            for f in .lighthouseci/lhr-*.json; do
+              [ -f "$f" ] || continue
+              python3 -c "
+              import json, sys
+              d = json.load(open('$f'))
+              url = d.get('finalUrl', '?')
+              cats = d.get('categories', {})
+              line = f'{url:50s}'
+              for k in ('performance','accessibility','best-practices','seo'):
+                  v = cats.get(k, {}).get('score')
+                  line += f'  {k}: {int(v*100) if v is not None else \"-\"}'
+              print(line)
+              " || true
+            done
+          fi
