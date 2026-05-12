@@ -22,7 +22,7 @@ export const testimonials: Testimonial[] = [
   {
     memberSlug: 'chen-jia-wei',
     quote:
-      '會計師最值錢的是判斷，不是報稅。在富聯，每週四清晨我都被迫整理本週對其他產業的觀察 — 這是我成長最快的訓練場。',
+      '會計師最值錢的是判斷，不是報稅。在富聯，每週二清晨我都被迫整理本週對其他產業的觀察 — 這是我成長最快的訓練場。',
     yearsAsMember: 5
   },
   {

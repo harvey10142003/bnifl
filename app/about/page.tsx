@@ -9,7 +9,6 @@ import type { LucideIcon } from 'lucide-react';
 import { PageHero } from '@/components/PageHero';
 import { Section, SectionHeader } from '@/components/ui/Section';
 import { Reveal } from '@/components/ui/Reveal';
-import { MapFacade } from '@/components/ui/MapFacade';
 import { officers } from '@/lib/data/members';
 import { roles, type RoleKey } from '@/lib/data/roles';
 import { site } from '@/lib/data/site';
@@ -32,7 +31,7 @@ const values = [
 
 const steps = [
   { num: '01', title: '預約參訪', desc: '線上填單登記，由訪客委員會聯繫確認席次。' },
-  { num: '02', title: '出席例會', desc: '免費體驗早餐會 1–2 次，現場感受 BNI 文化。' },
+  { num: '02', title: '出席例會', desc: '免費體驗線上晨會 1–2 次，感受 BNI 文化與商務節奏。' },
   { num: '03', title: '提交申請', desc: '若認同分會理念，由會員提名後填寫入會申請書。' },
   { num: '04', title: '面試與入會', desc: '會員委員會審核產業重疊與背景，通過後入會。' }
 ];
@@ -52,7 +51,7 @@ export default function AboutPage() {
           <div className="lg:col-span-5">
             <div className="eyebrow mb-5">OUR STORY</div>
             <h2 className="font-sans font-black text-display-md text-balance mb-6">
-              從一場早餐會，
+              從一場晨會，
               <br />
               到 50 家企業的信任網絡。
             </h2>
@@ -68,7 +67,7 @@ export default function AboutPage() {
             <Reveal delay={0.1}>
               <p>
                 5 年來，我們秉持「白金」的初心 —— 純粹、長久、值得信賴。
-                每週四清晨，我們在高雄福華大飯店相聚，帶著真實的引薦來，帶著彼此的事業願景離開。
+                每週二清晨，我們在線上會議室相聚，帶著真實的引薦來，帶著彼此的事業願景離開。
                 累計 2.85 億的引薦金額，背後是 1,240 筆真實的商業託付。
               </p>
             </Reveal>
@@ -88,7 +87,7 @@ export default function AboutPage() {
         <div className="container-bnifl">
           <SectionHeader
             eyebrow="CORE VALUES"
-            title="四大核心價值，撐起每一場早餐會。"
+            title="四大核心價值，撐起每一場晨會。"
             align="center"
           />
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
@@ -214,8 +213,8 @@ export default function AboutPage() {
           <div>
             <SectionHeader
               eyebrow="WEEKLY MEETING"
-              title="每週四清晨，福華大飯店相見。"
-              description="這是一場 2 小時的早餐會，但承載的是一整週的商業承諾。"
+              title="每週二清晨 線上會議室相見"
+              description="一場 90 分鐘的商業晨會 承載的是一整週的商業承諾"
               light
             />
             <ul className="space-y-5 mb-10">
@@ -223,7 +222,7 @@ export default function AboutPage() {
                 <Clock className="h-5 w-5 text-platinum-400 mt-1 shrink-0" />
                 <div>
                   <div className="text-pearl font-medium mb-1">{site.meeting.day}</div>
-                  <div className="text-ink-300 text-sm">{site.meeting.time}（含早餐）</div>
+                  <div className="text-ink-300 text-sm">{site.meeting.time}（90 分鐘）</div>
                 </div>
               </li>
               <li className="flex items-start gap-4">
@@ -239,23 +238,28 @@ export default function AboutPage() {
                 預約參訪
                 <ArrowRight className="h-4 w-4" />
               </Link>
-              <a
-                href={site.meeting.mapUrl}
-                target="_blank"
-                rel="noopener"
-                className="btn border border-pearl/30 text-pearl hover:bg-pearl hover:text-ink-900"
-              >
-                查看地圖
-              </a>
             </div>
           </div>
           <div>
             <Reveal>
-              <MapFacade
-                label={site.meeting.location}
-                embedSrc="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3690.9!2d120.30!3d22.63!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!5e0!3m2!1szh-TW!2stw!4v1700000000"
-                fallbackHref={site.meeting.mapUrl}
-              />
+              <div className="aspect-[4/3] bg-ink-700 border border-ink-700 overflow-hidden relative flex items-center justify-center">
+                <div className="absolute inset-0 grid-pattern opacity-30" aria-hidden="true" />
+                <div className="absolute inset-0 bg-gradient-to-br from-teal-500/10 via-ink-700 to-ink-900" aria-hidden="true" />
+                <div className="relative flex flex-col items-center gap-5 text-center px-8">
+                  <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-teal-500/20">
+                    <Clock className="h-7 w-7 text-teal-400" />
+                  </div>
+                  <div>
+                    <div className="font-sans font-black text-2xl text-pearl mb-2">線上商業會議</div>
+                    <div className="text-sm text-ink-200 max-w-xs leading-relaxed">
+                      不用通勤、不限地點 在世界任何角落都能參與富聯每週商務晨會
+                    </div>
+                  </div>
+                  <div className="text-xs text-teal-400 tracking-widest-2 uppercase">
+                    Zoom · 報名後寄送連結
+                  </div>
+                </div>
+              </div>
             </Reveal>
           </div>
         </div>

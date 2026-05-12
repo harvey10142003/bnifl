@@ -26,7 +26,7 @@ export default function NewsPage({
       <PageHero
         eyebrow="LATEST INSIGHTS"
         titleLines={['每週主題沉澱', '每場故事傳遞']}
-        description="從週四清晨的主題簡報 到鏡頭外的真實會員故事"
+        description="從週二清晨的主題簡報 到鏡頭外的真實會員故事"
       />
 
       {/* CATEGORY FILTER */}

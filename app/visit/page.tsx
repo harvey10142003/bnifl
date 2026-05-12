@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 };
 
 const expects = [
-  { icon: Coffee, title: '豐盛早餐', desc: '飯店等級的精緻自助早餐，含咖啡與飲品。' },
+  { icon: Coffee, title: '一杯晨間咖啡', desc: '在家或辦公室泡一杯咖啡，戴上耳機就能開始一天的商業節奏。' },
   { icon: Users, title: '50 位企業主', desc: '一次認識橫跨 14 個產業的高雄商務菁英。' },
   { icon: MessageCircle, title: '60 秒簡報', desc: '聽到每位會員以 60 秒分享自己的事業精華。' },
   { icon: Check, title: '無壓力體驗', desc: '純體驗、不強迫加入，依你的步調認識富聯。' }
@@ -23,23 +23,27 @@ const expects = [
 const faqs = [
   {
     q: '參訪需要費用嗎？',
-    a: '完全免費，包含一份早餐。一位訪客可以在同一個分會體驗 2 次，或不同分會各 1 次。'
+    a: '完全免費。一位訪客可以在同一個分會體驗 2 次，或不同分會各 1 次。'
+  },
+  {
+    q: '會議在哪裡舉行？需要去現場嗎？',
+    a: '我們是線上 Zoom 會議，完成預約後會以 Email / LINE 寄送會議連結。在台灣或海外都能參與。'
   },
   {
     q: '我可以帶同事或合作夥伴一起來嗎？',
-    a: '當然歡迎，但因席次有限，請每位來賓都個別填寫表單，方便我們提前準備。'
+    a: '當然歡迎，但為了確認席次，請每位來賓都個別填寫表單，方便我們提前準備。'
   },
   {
-    q: '我穿著需要正式嗎？',
-    a: '建議商務休閒（Business Casual）以上，會場大多為西裝、套裝為主。'
+    q: '線上會議我需要穿正式服裝嗎？',
+    a: '建議商務休閒以上，鏡頭內整潔即可。我們會請你開鏡頭做簡單自我介紹。'
   },
   {
     q: '我的產業已經有人了還能參訪嗎？',
     a: '可以！參訪不等於入會，仍歡迎你來認識會員，未來若有其他分會或產業空缺再做討論。'
   },
   {
-    q: '萬一當天我臨時不能來？',
-    a: '請至少 24 小時前來訊告知訪客委員會，我們會安排其他週次。連續兩次未到將需重新申請。'
+    q: '萬一當天我臨時不能參加？',
+    a: '請至少 12 小時前來訊告知訪客委員會，我們會安排其他週次。連續兩次未到將需重新申請。'
   }
 ];
 
@@ -49,8 +53,8 @@ export default function VisitPage() {
       <VisitJsonLd />
       <PageHero
         eyebrow="VISIT US"
-        titleLines={['2 小時的早餐會', '10 年的事業軌跡']}
-        description="不用提案不用簡報 帶一張名片就能走進高雄商務圈"
+        titleLines={['90 分鐘的線上晨會', '10 年的事業軌跡']}
+        description="不用通勤不用簡報 線上連線就能走進高雄商務圈"
       />
 
       {/* MEETING INFO + FORM */}
@@ -60,9 +64,9 @@ export default function VisitPage() {
             <div className="sticky top-32">
               <div className="eyebrow mb-5">MEETING DETAILS</div>
               <h2 className="font-sans font-black text-display-sm text-balance mb-8">
-                每週四清晨，
+                每週二清晨
                 <br />
-                高雄福華大飯店相見。
+                線上會議室相見
               </h2>
               <ul className="space-y-5 mb-10">
                 <li className="flex items-start gap-4">
@@ -70,7 +74,7 @@ export default function VisitPage() {
                   <div>
                     <div className="font-medium text-ink-900 mb-1">{site.meeting.day}</div>
                     <div className="text-sm text-ink-500">
-                      {site.meeting.time}（建議提前 15 分鐘入席）
+                      {site.meeting.time}（建議提前 5 分鐘上線）
                     </div>
                   </div>
                 </li>
@@ -79,14 +83,6 @@ export default function VisitPage() {
                   <div>
                     <div className="font-medium text-ink-900 mb-1">{site.meeting.location}</div>
                     <div className="text-sm text-ink-500">{site.meeting.address}</div>
-                    <a
-                      href={site.meeting.mapUrl}
-                      target="_blank"
-                      rel="noopener"
-                      className="text-sm text-platinum-700 underline mt-1 inline-block"
-                    >
-                      Google Maps 導航
-                    </a>
                   </div>
                 </li>
               </ul>
@@ -118,7 +114,7 @@ export default function VisitPage() {
         <div className="container-bnifl">
           <SectionHeader
             eyebrow="WHAT TO EXPECT"
-            title="你將會體驗到的早餐會。"
+            title="你將會體驗到的線上晨會。"
             align="center"
           />
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">

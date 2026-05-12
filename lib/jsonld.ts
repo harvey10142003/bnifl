@@ -66,20 +66,13 @@ export const localBusinessLd = {
   address: {
     '@type': 'PostalAddress',
     addressCountry: 'TW',
-    addressRegion: '高雄市',
-    addressLocality: '新興區',
-    streetAddress: site.meeting.address.replace('高雄市新興區', '')
-  },
-  geo: {
-    '@type': 'GeoCoordinates',
-    latitude: 22.6325,
-    longitude: 120.3014
+    addressRegion: '高雄市'
   },
   openingHoursSpecification: {
     '@type': 'OpeningHoursSpecification',
-    dayOfWeek: 'Thursday',
-    opens: '07:00',
-    closes: '09:00'
+    dayOfWeek: 'Tuesday',
+    opens: '06:30',
+    closes: '08:00'
   }
 };
 
@@ -87,27 +80,22 @@ export const recurringEventLd = {
   '@context': 'https://schema.org',
   '@type': 'BusinessEvent',
   name: `${site.shortName}每週例會`,
-  description: '富聯白金分會每週四清晨例會，含 60 秒商機輪播、會員主題簡報、引薦交流。免費歡迎企業主訪客觀摩。',
+  description: '富聯白金分會每週二清晨線上例會，含 60 秒商機輪播、會員主題簡報、引薦交流。免費歡迎企業主訪客觀摩。',
   url: `${baseUrl}/visit`,
   image: `${baseUrl}/images/logo-vertical.png`,
-  eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+  eventAttendanceMode: 'https://schema.org/OnlineEventAttendanceMode',
   eventStatus: 'https://schema.org/EventScheduled',
   organizer: { '@id': `${baseUrl}#organization` },
   location: {
-    '@type': 'Place',
-    name: site.meeting.location,
-    address: {
-      '@type': 'PostalAddress',
-      addressCountry: 'TW',
-      streetAddress: site.meeting.address
-    }
+    '@type': 'VirtualLocation',
+    url: `${baseUrl}/visit`
   },
   eventSchedule: {
     '@type': 'Schedule',
     repeatFrequency: 'P1W',
-    byDay: 'https://schema.org/Thursday',
-    startTime: '07:00',
-    endTime: '09:00'
+    byDay: 'https://schema.org/Tuesday',
+    startTime: '06:30',
+    endTime: '08:00'
   },
   offers: {
     '@type': 'Offer',

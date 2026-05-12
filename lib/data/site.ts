@@ -7,11 +7,11 @@ export const site = {
     'BNI 富聯白金分會位於高雄，集結 50 位產業菁英，秉持 Givers Gain® 付出者收穫的核心理念，打造高雄最具影響力的商務引薦平台。',
   url: 'https://bnifl.ugomk.com',
   meeting: {
-    day: '每週四',
-    time: '07:00 – 09:00',
-    location: '高雄福華大飯店 5F',
-    address: '高雄市新興區七賢一路 311 號',
-    mapUrl: 'https://maps.google.com/?q=高雄福華大飯店'
+    day: '每週二',
+    time: '06:30 – 08:00',
+    location: '線上 Zoom 會議',
+    address: '線上會議（報名後寄送連結）',
+    mapUrl: ''
   },
   contact: {
     line: '@bnifl',

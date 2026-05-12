@@ -88,7 +88,7 @@ export default function ContactPage() {
               <div className="flex items-start gap-3 mb-3">
                 <Clock className="h-5 w-5 text-platinum-400 mt-0.5 shrink-0" />
                 <div>
-                  <div className="font-medium text-pearl mb-1">每週四例會</div>
+                  <div className="font-medium text-pearl mb-1">每週二例會</div>
                   <div className="text-sm text-ink-300">{site.meeting.time}</div>
                 </div>
               </div>

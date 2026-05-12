@@ -339,7 +339,7 @@ export default function HomePage() {
               <span className="h-px w-10 bg-platinum-500" />
             </div>
             <h2 className="font-sans font-black text-display-lg text-pearl text-balance max-w-3xl mx-auto">
-              來一場早餐會，
+              來一場線上晨會，
               <br />
               讓你的事業更大、更好、更輕鬆。
             </h2>
