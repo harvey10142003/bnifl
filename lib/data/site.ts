@@ -4,7 +4,7 @@ export const site = {
   nameEn: 'BNI Fulian Platinum Chapter',
   tagline: '在地深耕．國際串聯．只有合作，沒有競爭',
   description:
-    'BNI 富聯白金分會位於高雄，集結 60+ 位產業菁英，秉持 Givers Gain® 付出者收穫的核心理念，打造高雄最具影響力的商務引薦平台。',
+    'BNI 富聯白金分會位於高雄，集結 50 位產業菁英，秉持 Givers Gain® 付出者收穫的核心理念，打造高雄最具影響力的商務引薦平台。',
   url: 'https://bnifl.ugomk.com',
   meeting: {
     day: '每週四',
@@ -22,7 +22,7 @@ export const site = {
     instagram: 'https://www.instagram.com/bnifl'
   },
   stats: {
-    members: 62,
+    members: 50,
     industries: 14,
     referralAmount: 285_000_000,
     referralCount: 1240,

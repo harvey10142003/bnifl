@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 const expects = [
   { icon: Coffee, title: '豐盛早餐', desc: '飯店等級的精緻自助早餐，含咖啡與飲品。' },
-  { icon: Users, title: '60 位企業主', desc: '一次認識橫跨 14 個產業的高雄商務菁英。' },
+  { icon: Users, title: '50 位企業主', desc: '一次認識橫跨 14 個產業的高雄商務菁英。' },
   { icon: MessageCircle, title: '60 秒簡報', desc: '聽到每位會員以 60 秒分享自己的事業精華。' },
   { icon: Check, title: '無壓力體驗', desc: '純體驗、不強迫加入，依你的步調認識富聯。' }
 ];

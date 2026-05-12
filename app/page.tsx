@@ -67,7 +67,7 @@ export default function HomePage() {
             </Reveal>
             <Reveal delay={0.2}>
               <p className="mt-8 max-w-2xl text-lg leading-relaxed text-ink-200 lg:whitespace-nowrap">
-                集結 60+ 高雄企業主 以 Givers Gain® 共寫商業新篇章
+                集結 50 位高雄企業主 以 Givers Gain® 共寫商業新篇章
               </p>
             </Reveal>
             <Reveal delay={0.3}>

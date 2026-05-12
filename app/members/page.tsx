@@ -48,7 +48,7 @@ export default function MembersPage({
         titleLines={
           activeIndustry
             ? [`${activeIndustry.name}產業`, '富聯專業會員']
-            : ['14 個產業匯流', '60+ 位專業會員']
+            : ['14 個產業匯流', '50 位專業會員']
         }
         description={
           activeIndustry?.description ??
