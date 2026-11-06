@@ -13,13 +13,15 @@ export function generateStaticParams() {
   return news.map((n) => ({ slug: n.slug }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
+export async function generateMetadata(props: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const params = await props.params;
   const n = newsBySlug(params.slug);
   if (!n) return { title: '消息' };
   return { title: n.title, description: n.excerpt };
 }
 
-export default function NewsDetailPage({ params }: { params: { slug: string } }) {
+export default async function NewsDetailPage(props: { params: Promise<{ slug: string }> }) {
+  const params = await props.params;
   const item = newsBySlug(params.slug);
   if (!item) notFound();
   const more = news.filter((n) => n.slug !== item.slug).slice(0, 3);

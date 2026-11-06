@@ -27,11 +27,12 @@ function matchSearch(m: (typeof members)[number], q: string) {
   return haystack.includes(q.toLowerCase());
 }
 
-export default function MembersPage({
-  searchParams
-}: {
-  searchParams: { industry?: string; q?: string };
-}) {
+export default async function MembersPage(
+  props: {
+    searchParams: Promise<{ industry?: string; q?: string }>;
+  }
+) {
+  const searchParams = await props.searchParams;
   const filterIndustry = searchParams.industry;
   const query = searchParams.q?.trim() ?? '';
 

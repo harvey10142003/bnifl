@@ -1,4 +1,5 @@
 import type { NextPageContext } from 'next';
+import Link from 'next/link';
 
 type ErrorProps = { statusCode?: number };
 
@@ -24,7 +25,7 @@ function ErrorPage({ statusCode }: ErrorProps) {
         <p style={{ color: '#9AA5BB' }}>
           {statusCode === 404 ? '頁面不存在' : statusCode ? '伺服器發生錯誤' : '發生未預期的錯誤'}
         </p>
-        <a href="/" style={{
+        <Link href="/" style={{
           display: 'inline-block',
           marginTop: 32,
           padding: '12px 28px',
@@ -32,7 +33,7 @@ function ErrorPage({ statusCode }: ErrorProps) {
           color: '#0B1426',
           textDecoration: 'none',
           fontWeight: 500
-        }}>返回首頁</a>
+        }}>返回首頁</Link>
       </div>
     </main>
   );

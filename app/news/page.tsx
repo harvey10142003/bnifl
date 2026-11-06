@@ -12,11 +12,12 @@ export const metadata: Metadata = {
 
 const categories = ['全部', '主題簡報', '會員專訪', '活動公告', '媒體報導'] as const;
 
-export default function NewsPage({
-  searchParams
-}: {
-  searchParams: { c?: string };
-}) {
+export default async function NewsPage(
+  props: {
+    searchParams: Promise<{ c?: string }>;
+  }
+) {
+  const searchParams = await props.searchParams;
   const cat = searchParams.c;
   const filtered = cat && cat !== '全部' ? news.filter((n) => n.category === cat) : news;
   const [featured, ...rest] = filtered;

@@ -13,7 +13,8 @@ export function generateStaticParams() {
   return members.map((m) => ({ slug: m.slug }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
+export async function generateMetadata(props: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const params = await props.params;
   const m = memberBySlug(params.slug);
   if (!m) return { title: '會員' };
   return {
@@ -22,7 +23,8 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   };
 }
 
-export default function MemberDetailPage({ params }: { params: { slug: string } }) {
+export default async function MemberDetailPage(props: { params: Promise<{ slug: string }> }) {
+  const params = await props.params;
   const member = memberBySlug(params.slug);
   if (!member) notFound();
   const industry = industries.find((i) => i.slug === member.industry);
